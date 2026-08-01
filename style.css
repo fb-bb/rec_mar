@@ -1,0 +1,102 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ececec;
+}
+
+/* Tela principal (1080x720) */
+.container{
+    width:1920px;
+    height:720px;
+
+    background:#ffffff;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,.15);
+}
+
+/* Logo */
+.logo{
+    width:350px;
+    margin-bottom:25px;
+}
+
+/* Título */
+h1{
+    font-size:58px;
+    font-weight:bold;
+    letter-spacing:2px;
+    color:#111;
+}
+
+h2{
+    font-size:40px;
+    font-weight:600;
+    margin-bottom:40px;
+    color:#111;
+}
+
+/* Slogan */
+p{
+    font-size:24px;
+    color:#555;
+    text-align:center;
+    line-height:1.6;
+    margin-bottom:90px;
+}
+
+/* Botão */
+button{
+    width:350px;
+    height:70px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#d9d9d9;
+
+    font-size:24px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    background:#c5c5c5;
+}
+
+/* Bolinhas */
+.indicadores{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+}
+
+.indicadores span{
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+    border:2px solid #000;
+}
+
+.ativo{
+    background:#000;
+}
