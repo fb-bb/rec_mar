@@ -1,136 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Recife Contra a Maré</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
 
-<body>
-
+  <body>
     <!-- Cabeçalho -->
     <header class="header">
-        <div class="logo-area">
-            <img src="rec_mar.webp" class="logo" alt="Logo Recife Contra a Maré">
+      <div class="logo-area">
+        <img src="rec_mar.webp" class="logo" alt="Logo Recife Contra a Maré" />
 
-            <div class="texto-logo">
-                <h2>RECIFE CONTRA A MARÉ</h2>
-                <p>Monitoramento de Chuvas e Alagamentos</p>
-            </div>
+        <div class="texto-logo">
+          <h2>RECIFE CONTRA A MARÉ</h2>
+          <p>Monitoramento de Chuvas e Alagamentos</p>
         </div>
-       <div class="usuario">
-            <i class="fa-solid fa-circle-user"></i>
-            <span>Arthur Mendez</span>
-        </div>
+      </div>
+      <div class="usuario">
+        <i class="fa-solid fa-circle-user"></i>
+        <span>Arthur Mendez</span>
+      </div>
     </header>
 
     <!-- Menu Lateral -->
     <aside class="sidebar">
-        <nav>
+      <nav>
+        <a href="#" class="item ativo">
+          <i class="fa-solid fa-house"></i>
+          <span>Início</span>
+        </a>
 
-            <a href="#" class="item ativo">
-                <i class="fa-solid fa-house"></i>
-                <span>Início</span>
-            </a>
+        <a href="#" class="item">
+          <i class="fa-regular fa-map"></i>
+          <span>Mapa</span>
+        </a>
 
-            <a href="#" class="item">
-                <i class="fa-regular fa-map"></i>
-                <span>Mapa</span>
-            </a>
+        <a href="#" class="item">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Alertas</span>
+        </a>
 
-            <a href="#" class="item">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span>Alertas</span>
-            </a>
+        <a href="#" class="item">
+          <i class="fa-solid fa-circle-plus"></i>
+          <span>Registrar Problema</span>
+        </a>
 
-            <a href="#" class="item">
-                <i class="fa-solid fa-circle-plus"></i>
-                <span>Registrar Problema</span>
-            </a>
+        <a href="#" class="item">
+          <i class="fa-solid fa-road"></i>
+          <span>Rotas Seguras</span>
+        </a>
 
-            <a href="#" class="item">
-                <i class="fa-solid fa-road"></i>
-                <span>Rotas Seguras</span>
-            </a>
+        <a href="#" class="item">
+          <i class="fa-regular fa-user"></i>
+          <span>Perfil</span>
+        </a>
+      </nav>
 
-            <a href="#" class="item">
-                <i class="fa-regular fa-user"></i>
-                <span>Perfil</span>
-            </a>
+      <div class="rodape">
+        <a href="#" class="item">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Ajuda</span>
+        </a>
 
-        </nav>
-
-        <div class="rodape">
-
-            <a href="#" class="item">
-                <i class="fa-regular fa-circle-question"></i>
-                <span>Ajuda</span>
-            </a>
-
-            <a href="#" class="item">
-                <i class="fa-solid fa-gear"></i>
-                <span>Configurações</span>
-            </a>
-
-        </div>
+        <a href="#" class="item">
+          <i class="fa-solid fa-gear"></i>
+          <span>Configurações</span>
+        </a>
+      </div>
     </aside>
 
     <!-- Conteúdo principal -->
     <main class="conteudo">
-        
+      <!-- Card Tempo Agora -->
+      <div class="card-tempo">
+        <h3>Tempo Agora</h3>
 
-        <!-- Card Tempo Agora -->
-        <div class="card-tempo">
+        <div class="tempo-principal">
+          <div class="icone-clima">
+            <i class="fa-solid fa-cloud-sun"></i>
+          </div>
 
-            <h3>Tempo Agora</h3>
-
-            <div class="tempo-principal">
-
-                <div class="icone-clima">
-                   <i class="fa-solid fa-cloud-sun"></i>
-                </div>
-
-                <div class="temperatura">
-                    <h1>24°C</h1>
-                    <p>Nublado</p>
-                </div>
-
-            </div>
-
-            <hr>
-
-            <div class="info-clima">
-
-                <div class="item-clima">
-                    <i class="fa-solid fa-droplet"></i>
-                    <h4>Umidade</h4>
-                    <p>78%</p>
-                </div>
-
-                <div class="item-clima">
-                    <i class="fa-solid fa-wind"></i>
-                    <h4>Vento</h4>
-                    <p>15 km/h</p>
-                </div>
-
-                <div class="item-clima">
-                    <i class="fa-solid fa-cloud-rain"></i>
-                    <h4>Chuva</h4>
-                    <p>0.0 mm</p>
-                </div>
-
-            </div>
-
+          <div class="temperatura">
+            <h1>24°C</h1>
+            <p>Nublado</p>
+          </div>
         </div>
 
-    </main>
+        <hr />
 
-</body>
+        <div class="info-clima">
+          <div class="item-clima">
+            <i class="fa-solid fa-droplet"></i>
+            <h4>Umidade</h4>
+            <p>78%</p>
+          </div>
+
+          <div class="item-clima">
+            <i class="fa-solid fa-wind"></i>
+            <h4>Vento</h4>
+            <p>15 km/h</p>
+          </div>
+
+          <div class="item-clima">
+            <i class="fa-solid fa-cloud-rain"></i>
+            <h4>Chuva</h4>
+            <p>0.0 mm</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
