@@ -1,298 +1,136 @@
-/* ===========================
-   RESET
-=========================== */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-    background:#f4f4f4;
-    padding:12px;
-}
-
-/* ===========================
-   HEADER
-=========================== */
-.header{
-    width:100%;
-    height:70px;
-
-    background:#fff;
-    border:1px solid #dcdcdc;
-    border-radius:12px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 25px;
-
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.logo{
-    width:60px;
-}
-
-.texto-logo h2{
-    font-size:28px;
-    color:#333;
-}
-
-.texto-logo p{
-    font-size:14px;
-    color:#666;
-}
-
-.usuario{
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    font-size:16px;
-    color:#555;
-}
-
-.usuario i{
-    font-size:32px;
-    color:#444;
-}
-
-/* ===========================
-   LAYOUT
-=========================== */
-.layout{
-    display:flex;
-    gap:20px;
-    margin-top:12px;
-}
-
-/* ===========================
-   SIDEBAR
-=========================== */
-.sidebar{
-
-    width:240px;
-    height:calc(100vh - 94px);
-
-    background:#fff;
-
-    border:1px solid #dcdcdc;
-    border-radius:12px;
-
-    padding:15px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-nav{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-.item{
-
-    text-decoration:none;
-    color:#444;
-
-    display:flex;
-    align-items:center;
-    gap:14px;
-
-    padding:14px;
-
-    border-radius:10px;
-
-    transition:.25s;
-}
-
-.item i{
-
-    width:22px;
-    text-align:center;
-    font-size:18px;
-}
-
-.item:hover{
-
-    background:#efefef;
-}
-
-.item.ativo{
-
-    background:#ececec;
-    font-weight:bold;
-}
-
-.rodape{
-
-    border-top:1px solid #ddd;
-
-    padding-top:15px;
-
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-/* ===========================
-   CONTEÚDO
-=========================== */
-.conteudo{
-
-    flex:1;
-}
-
-/* ===========================
-   CARD TEMPO
-=========================== */
-
-.card-tempo{
-
-    width:360px;
-
-    background:#fff;
-
-    border:1px solid #ddd;
-    border-radius:12px;
-
-    padding:20px;
-
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.card-tempo h3{
-
-    color:#444;
-    margin-bottom:18px;
-}
-
-/* ===========================
-   PARTE SUPERIOR
-=========================== */
-
-.tempo-principal{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.icone-clima{
-
-    width:90px;
-    height:90px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.icone-clima i{
-
-    font-size:60px;
-    color:#666;
-}
-
-.temperatura{
-
-    text-align:right;
-}
-
-.temperatura h1{
-
-    font-size:52px;
-    color:#222;
-}
-
-.temperatura p{
-
-    font-size:22px;
-    color:#666;
-}
-
-.card-tempo hr{
-
-    border:none;
-    border-top:1px solid #ddd;
-
-    margin:20px 0;
-}
-
-/* ===========================
-   PARTE INFERIOR
-=========================== */
-
-.info-clima{
-
-    display:flex;
-    justify-content:space-between;
-}
-
-.item-clima{
-
-    width:33%;
-
-    text-align:center;
-}
-
-.item-clima i{
-
-    font-size:20px;
-    color:#555;
-}
-
-.item-clima h4{
-
-    margin-top:8px;
-
-    font-size:14px;
-    color:#666;
-}
-
-.item-clima p{
-
-    margin-top:4px;
-
-    font-size:15px;
-    font-weight:bold;
-
-    color:#222;
-}
-
-/* ===========================
-   RESPONSIVO
-=========================== */
-
-@media(max-width:900px){
-
-    .layout{
-
-        flex-direction:column;
-    }
-
-    .sidebar{
-
-        width:100%;
-        height:auto;
-    }
-
-    .card-tempo{
-
-        width:100%;
-    }
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Recife Contra a Maré</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Cabeçalho -->
+    <header class="header">
+      <div class="logo-area">
+        <img src="rec_mar.webp" class="logo" alt="Logo Recife Contra a Maré" />
+
+        <div class="texto-logo">
+          <h2>RECIFE CONTRA A MARÉ</h2>
+          <p>Monitoramento de Chuvas e Alagamentos</p>
+        </div>
+      </div>
+      <div class="usuario">
+        <i class="fa-solid fa-circle-user"></i>
+        <span>Arthur Mendez</span>
+      </div>
+    </header>
+<div class="layout">
+    <!-- Menu Lateral -->
+    <aside class="sidebar">
+      <nav>
+        <a href="#" class="item ativo">
+          <i class="fa-solid fa-house"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="#" class="item">
+          <i class="fa-regular fa-map"></i>
+          <span>Mapa</span>
+        </a>
+
+        <a href="#" class="item">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Alertas</span>
+        </a>
+
+        <a href="#" class="item">
+          <i class="fa-solid fa-circle-plus"></i>
+          <span>Registrar Problema</span>
+        </a>
+
+        <a href="#" class="item">
+          <i class="fa-solid fa-road"></i>
+          <span>Rotas Seguras</span>
+        </a>
+
+        <a href="#" class="item">
+          <i class="fa-regular fa-user"></i>
+          <span>Perfil</span>
+        </a>
+      </nav>
+
+      <div class="rodape">
+        <a href="#" class="item">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Ajuda</span>
+        </a>
+
+        <a href="#" class="item">
+          <i class="fa-solid fa-gear"></i>
+          <span>Configurações</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="conteudo">
+      <!-- Card Tempo Agora -->
+      <div class="card-tempo">
+        <h3>Tempo Agora</h3>
+
+        <div class="tempo-principal">
+          <div class="icone-clima">
+            <i class="fa-solid fa-cloud-sun"></i>
+          </div>
+
+          <div class="temperatura">
+            <h1>24°C</h1>
+            <p>Nublado</p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="info-clima">
+          <div class="item-clima">
+            <i class="fa-solid fa-droplet"></i>
+            <h4>Umidade</h4>
+            <p>78%</p>
+          </div>
+
+          <div class="item-clima">
+            <i class="fa-solid fa-wind"></i>
+            <h4>Vento</h4>
+            <p>15 km/h</p>
+          </div>
+
+          <div class="item-clima">
+            <i class="fa-solid fa-cloud-rain"></i>
+            <h4>Chuva</h4>
+            <p>0,5 mm</p>
+        <!--Card Alertas Ativos-->
+        <div class="card-tempo">
+        <h3>Alertas Ativos</h3>
+        <div class="alertas-principais"
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="alerta1">
+          <h4>Risco Alto de Alagamento</h4>
+          <p>Boa Viagem</p>
+          <p>Atualizado há 10 minutos</p>
+        <div class="alerta2">  
+          <h4>Chuvas Moderadas</h4>
+          <p>Zona Sul</p>
+          <p>Atualizado há 25 minutos</p>
+    
+      </div>
+    </main>
+    </div>
+  </body>
+</html>
