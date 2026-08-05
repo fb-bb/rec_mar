@@ -1,18 +1,95 @@
+/* ===========================
+   RESET
+=========================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    padding:12px;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.header{
+    width:100%;
+    height:70px;
+
+    background:#fff;
+    border:1px solid #dcdcdc;
+    border-radius:12px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 25px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    width:60px;
+}
+
+.texto-logo h2{
+    font-size:28px;
+    color:#333;
+}
+
+.texto-logo p{
+    font-size:14px;
+    color:#666;
+}
+
+.usuario{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:16px;
+    color:#555;
+}
+
+.usuario i{
+    font-size:32px;
+    color:#444;
+}
+
+/* ===========================
+   LAYOUT
+=========================== */
 .layout{
     display:flex;
     gap:20px;
     margin-top:12px;
 }
 
+/* ===========================
+   SIDEBAR
+=========================== */
 .sidebar{
-    width:230px;
-    height:calc(100vh - 82px);
+
+    width:240px;
+    height:calc(100vh - 94px);
 
     background:#fff;
+
     border:1px solid #dcdcdc;
     border-radius:12px;
 
-    padding:15px 10px;
+    padding:15px;
 
     display:flex;
     flex-direction:column;
@@ -21,7 +98,201 @@
     box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
+nav{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.item{
+
+    text-decoration:none;
+    color:#444;
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    transition:.25s;
+}
+
+.item i{
+
+    width:22px;
+    text-align:center;
+    font-size:18px;
+}
+
+.item:hover{
+
+    background:#efefef;
+}
+
+.item.ativo{
+
+    background:#ececec;
+    font-weight:bold;
+}
+
+.rodape{
+
+    border-top:1px solid #ddd;
+
+    padding-top:15px;
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+/* ===========================
+   CONTEÚDO
+=========================== */
 .conteudo{
+
     flex:1;
+}
+
+/* ===========================
+   CARD TEMPO
+=========================== */
+
+.card-tempo{
+
+    width:360px;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+    border-radius:12px;
+
     padding:20px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.card-tempo h3{
+
+    color:#444;
+    margin-bottom:18px;
+}
+
+/* ===========================
+   PARTE SUPERIOR
+=========================== */
+
+.tempo-principal{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.icone-clima{
+
+    width:90px;
+    height:90px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.icone-clima i{
+
+    font-size:60px;
+    color:#666;
+}
+
+.temperatura{
+
+    text-align:right;
+}
+
+.temperatura h1{
+
+    font-size:52px;
+    color:#222;
+}
+
+.temperatura p{
+
+    font-size:22px;
+    color:#666;
+}
+
+.card-tempo hr{
+
+    border:none;
+    border-top:1px solid #ddd;
+
+    margin:20px 0;
+}
+
+/* ===========================
+   PARTE INFERIOR
+=========================== */
+
+.info-clima{
+
+    display:flex;
+    justify-content:space-between;
+}
+
+.item-clima{
+
+    width:33%;
+
+    text-align:center;
+}
+
+.item-clima i{
+
+    font-size:20px;
+    color:#555;
+}
+
+.item-clima h4{
+
+    margin-top:8px;
+
+    font-size:14px;
+    color:#666;
+}
+
+.item-clima p{
+
+    margin-top:4px;
+
+    font-size:15px;
+    font-weight:bold;
+
+    color:#222;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media(max-width:900px){
+
+    .layout{
+
+        flex-direction:column;
+    }
+
+    .sidebar{
+
+        width:100%;
+        height:auto;
+    }
+
+    .card-tempo{
+
+        width:100%;
+    }
 }
