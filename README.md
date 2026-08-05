@@ -1,136 +1,183 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recife Contra a Maré</title>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-  </head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
 
-  <body>
+<body>
+
     <!-- Cabeçalho -->
     <header class="header">
-      <div class="logo-area">
-        <img src="rec_mar.webp" class="logo" alt="Logo Recife Contra a Maré" />
 
-        <div class="texto-logo">
-          <h2>RECIFE CONTRA A MARÉ</h2>
-          <p>Monitoramento de Chuvas e Alagamentos</p>
+        <div class="logo-area">
+            <img src="rec_mar.webp" class="logo" alt="Logo Recife Contra a Maré">
+
+            <div class="texto-logo">
+                <h2>RECIFE CONTRA A MARÉ</h2>
+                <p>Monitoramento de Chuvas e Alagamentos</p>
+            </div>
         </div>
-      </div>
-      <div class="usuario">
-        <i class="fa-solid fa-circle-user"></i>
-        <span>Arthur Mendez</span>
-      </div>
+
+        <div class="usuario">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>Arthur Mendez</span>
+        </div>
+
     </header>
-<div class="layout">
-    <!-- Menu Lateral -->
-    <aside class="sidebar">
-      <nav>
-        <a href="#" class="item ativo">
-          <i class="fa-solid fa-house"></i>
-          <span>Início</span>
-        </a>
 
-        <a href="#" class="item">
-          <i class="fa-regular fa-map"></i>
-          <span>Mapa</span>
-        </a>
+    <!-- Layout -->
+    <div class="layout">
 
-        <a href="#" class="item">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          <span>Alertas</span>
-        </a>
+        <!-- Menu -->
+        <aside class="sidebar">
 
-        <a href="#" class="item">
-          <i class="fa-solid fa-circle-plus"></i>
-          <span>Registrar Problema</span>
-        </a>
+            <nav>
 
-        <a href="#" class="item">
-          <i class="fa-solid fa-road"></i>
-          <span>Rotas Seguras</span>
-        </a>
+                <a href="#" class="item ativo">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Início</span>
+                </a>
 
-        <a href="#" class="item">
-          <i class="fa-regular fa-user"></i>
-          <span>Perfil</span>
-        </a>
-      </nav>
+                <a href="#" class="item">
+                    <i class="fa-regular fa-map"></i>
+                    <span>Mapa</span>
+                </a>
 
-      <div class="rodape">
-        <a href="#" class="item">
-          <i class="fa-regular fa-circle-question"></i>
-          <span>Ajuda</span>
-        </a>
+                <a href="#" class="item">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Alertas</span>
+                </a>
 
-        <a href="#" class="item">
-          <i class="fa-solid fa-gear"></i>
-          <span>Configurações</span>
-        </a>
-      </div>
-    </aside>
+                <a href="#" class="item">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <span>Registrar Problema</span>
+                </a>
 
-    <!-- Conteúdo principal -->
-    <main class="conteudo">
-      <!-- Card Tempo Agora -->
-      <div class="card-tempo">
-        <h3>Tempo Agora</h3>
+                <a href="#" class="item">
+                    <i class="fa-solid fa-road"></i>
+                    <span>Rotas Seguras</span>
+                </a>
 
-        <div class="tempo-principal">
-          <div class="icone-clima">
-            <i class="fa-solid fa-cloud-sun"></i>
-          </div>
+                <a href="#" class="item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Perfil</span>
+                </a>
 
-          <div class="temperatura">
-            <h1>24°C</h1>
-            <p>Nublado</p>
-          </div>
-        </div>
+            </nav>
 
-        <hr />
+            <div class="rodape">
 
-        <div class="info-clima">
-          <div class="item-clima">
-            <i class="fa-solid fa-droplet"></i>
-            <h4>Umidade</h4>
-            <p>78%</p>
-          </div>
+                <a href="#" class="item">
+                    <i class="fa-regular fa-circle-question"></i>
+                    <span>Ajuda</span>
+                </a>
 
-          <div class="item-clima">
-            <i class="fa-solid fa-wind"></i>
-            <h4>Vento</h4>
-            <p>15 km/h</p>
-          </div>
+                <a href="#" class="item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
 
-          <div class="item-clima">
-            <i class="fa-solid fa-cloud-rain"></i>
-            <h4>Chuva</h4>
-            <p>0,5 mm</p>
-        <!--Card Alertas Ativos-->
-        <div class="card-tempo">
-        <h3>Alertas Ativos</h3>
-        <div class="alertas-principais"
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <div class="alerta1">
-          <h4>Risco Alto de Alagamento</h4>
-          <p>Boa Viagem</p>
-          <p>Atualizado há 10 minutos</p>
-        <div class="alerta2">  
-          <h4>Chuvas Moderadas</h4>
-          <p>Zona Sul</p>
-          <p>Atualizado há 25 minutos</p>
-    
-      </div>
-    </main>
+            </div>
+
+        </aside>
+
+        <!-- Conteúdo -->
+        <main class="conteudo">
+
+            <!-- Card Tempo -->
+            <div class="card-tempo">
+
+                <h3>Tempo Agora</h3>
+
+                <div class="tempo-principal">
+
+                    <div class="icone-clima">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </div>
+
+                    <div class="temperatura">
+                        <h1>24°C</h1>
+                        <p>Nublado</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="info-clima">
+
+                    <div class="item-clima">
+                        <i class="fa-solid fa-droplet"></i>
+                        <h4>Umidade</h4>
+                        <p>78%</p>
+                    </div>
+
+                    <div class="item-clima">
+                        <i class="fa-solid fa-wind"></i>
+                        <h4>Vento</h4>
+                        <p>15 km/h</p>
+                    </div>
+
+                    <div class="item-clima">
+                        <i class="fa-solid fa-cloud-rain"></i>
+                        <h4>Chuva</h4>
+                        <p>0,5 mm</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Card Alertas -->
+            <div class="card-alertas">
+
+                <h3>Alertas Ativos</h3>
+
+                <div class="alertas-principais">
+
+                    <div class="alerta">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                        <div>
+
+                            <h4>Risco Alto de Alagamento</h4>
+                            <p>Boa Viagem</p>
+                            <small>Atualizado há 10 minutos</small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="alerta">
+
+                        <i class="fa-solid fa-cloud-rain"></i>
+
+                        <div>
+
+                            <h4>Chuvas Moderadas</h4>
+                            <p>Zona Sul</p>
+                            <small>Atualizado há 25 minutos</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
     </div>
-  </body>
+
+</body>
 </html>
