@@ -82,12 +82,12 @@ body {
 }
 
 /* ===========================
-   SIDEBAR (AGORA EM AZUL ESCURO)
+   SIDEBAR
 =========================== */
 .sidebar {
   width: 240px;
   min-height: calc(100vh - 108px);
-  background: #0f172a; /* Azul Noturno Profundo */
+  background: #0f172a;
   border: 1px solid #0f172a;
   border-radius: 12px;
   padding: 16px 12px;
@@ -107,7 +107,7 @@ nav {
 
 .item {
   text-decoration: none;
-  color: #94a3b8; /* Texto cinza claro para leitura suave */
+  color: #94a3b8;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -124,7 +124,7 @@ nav {
 }
 
 .item:hover {
-  background: #1e293b; /* Um pouco mais claro no hover */
+  background: #1e293b;
   color: #ffffff;
 }
 
@@ -152,17 +152,43 @@ nav {
   gap: 20px;
 }
 
-/* LINHA 1: Tempo e Alertas (Lado a lado) */
+/* LINHA 1: Tempo e Alertas (Lado a lado) - mantido para compatibilidade com outras páginas */
 .cards-superiores {
   display: grid;
-  grid-template-columns: 1.2fr 1fr; 
+  grid-template-columns: 1.2fr 1fr;
   gap: 20px;
 }
 
-/* LINHA 2: Dicas (Ocupa a largura toda) */
+/* LINHA 2: Dicas (Ocupa a largura toda) - mantido para compatibilidade */
 .cards-inferiores-linha1 {
   display: grid;
   grid-template-columns: 1fr;
+}
+
+/* ===========================
+   NOVO: Grupo Topo (Tempo + Dicas empilhados | Alertas esticado)
+=========================== */
+.grupo-topo {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.coluna-esquerda-topo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* O card de alertas agora estica para acompanhar a altura de Tempo + Dicas */
+.card-alertas {
+  height: 100%;
+}
+
+.card-alertas .alertas-principais {
+  flex: 1;
+  justify-content: flex-start;
 }
 
 /* LINHA 3: Proteja e Mapa (Lado a lado) */
@@ -310,7 +336,7 @@ nav {
 .item-clima p {
   font-size: 15px;
   font-weight: 700;
-  color: #0f172a; /* AZUL ESCURO NOS NÚMEROS */
+  color: #0f172a;
   margin-top: 2px;
 }
 
@@ -387,7 +413,7 @@ nav {
 .linha {
   width: 100%;
   height: 8px;
-  background: #e2e8f0; /* Cinza claro para o fundo da barra */
+  background: #e2e8f0;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
@@ -398,7 +424,7 @@ nav {
   display: block;
   width: var(--progress, 50%);
   height: 100%;
-  background: #0f172a; /* AZUL ESCURO NO PREENCHIMENTO */
+  background: #0f172a;
   border-radius: 20px;
 }
 
@@ -561,8 +587,13 @@ nav {
 =========================== */
 @media (max-width: 1024px) {
   .cards-superiores,
-  .cards-inferiores-linha2 {
-    grid-template-columns: 1fr; 
+  .cards-inferiores-linha2,
+  .grupo-topo {
+    grid-template-columns: 1fr;
+  }
+
+  .card-alertas {
+    height: auto;
   }
 }
 
@@ -652,7 +683,6 @@ a.btn-link {
 
 /* ===============================================
    TELA: ALERTAS
-   (segue o mesmo padrão visual das demais telas)
 =============================================== */
 
 .pagina-titulo {
@@ -673,7 +703,6 @@ a.btn-link {
   color: #111827;
 }
 
-/* Resumo em 3 blocos (Muito Alto / Alto / Moderado) */
 .resumo-alertas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -727,7 +756,6 @@ a.btn-link {
   margin-top: 4px;
 }
 
-/* Lista "Alertas Recentes" */
 .alertas-recentes-lista {
   display: flex;
   flex-direction: column;
@@ -866,7 +894,6 @@ a.btn-link {
   border-color: #9ca3af;
 }
 
-/* Barra de filtros */
 .barra-filtros {
   display: flex;
   gap: 12px;
@@ -924,7 +951,6 @@ a.btn-link {
   color: #9ca3af;
 }
 
-/* Layout de duas colunas: mapa + painel lateral */
 .mapa-layout {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -938,7 +964,6 @@ a.btn-link {
   gap: 16px;
 }
 
-/* Área do mapa grande */
 .mapa-grande-wrapper {
   position: relative;
   width: 100%;
@@ -1085,7 +1110,6 @@ a.btn-link {
   right: 0;
 }
 
-/* Legenda flutuante "Nível de Risco" dentro do mapa */
 .legenda-flutuante {
   position: absolute;
   bottom: 14px;
@@ -1126,7 +1150,6 @@ a.btn-link {
 .bolinha.moderado { background: #d97706; }
 .bolinha.baixo { background: #d1d5db; }
 
-/* Legenda do mapa (barra abaixo do mapa) */
 .legenda-mapa-card {
   display: flex;
   flex-direction: column;
@@ -1168,7 +1191,6 @@ a.btn-link {
   display: inline-block;
 }
 
-/* Painel lateral direito */
 .painel-lateral {
   display: flex;
   flex-direction: column;
