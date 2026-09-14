@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alertas · Recife Contra a Maré</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-area">
+      <img
+        src="img/rec_mar.webp"
+        alt="Logo do Recife Contra a Maré"
+        class="logo"
+      />
+      <div class="texto-logo">
+        <h2>RECIFE CONTRA A MARÉ</h2>
+        <p>Monitoramento de Chuvas e Alagamentos</p>
+      </div>
+    </div>
+
+    <div class="usuario">
+      <i
+        class="fa-regular fa-bell"
+        style="font-size: 22px; color: #555; cursor: pointer"
+      ></i>
+      <div class="avatar-area">
+        <i class="fa-solid fa-circle-user"></i>
+        <span>F. Lins de Araujo</span>
+        <i
+          class="fa-solid fa-chevron-down"
+          style="font-size: 12px; margin-left: 4px"
+        ></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <div class="layout">
+    <!-- Menu -->
+    <aside class="sidebar">
+      <nav>
+        <a href="index.html" class="item">
+          <i class="fa-solid fa-house"></i>
+          <span>Início</span>
+        </a>
+        <a href="#" class="item">
+          <i class="fa-regular fa-map"></i>
+          <span>Mapa</span>
+        </a>
+        <a href="#" class="item ativo">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Alertas</span>
+        </a>
+        <a href="#" class="item">
+          <i class="fa-solid fa-circle-plus"></i>
+          <span>Registrar Problema</span>
+        </a>
+        <a href="#" class="item">
+          <i class="fa-solid fa-road"></i>
+          <span>Rotas Seguras</span>
+        </a>
+        <a href="#" class="item">
+          <i class="fa-regular fa-user"></i>
+          <span>Perfil</span>
+        </a>
+      </nav>
+
+      <div class="rodape">
+        <a href="#" class="item">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Ajuda</span>
+        </a>
+        <a href="#" class="item">
+          <i class="fa-solid fa-gear"></i>
+          <span>Configurações</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <div class="conteudo">
+      <!-- Card: Resumo de Alertas Ativos -->
+      <div class="card">
+        <div class="card-header">
+          <div class="pagina-titulo">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h1>Alertas Ativos</h1>
+          </div>
+        </div>
+
+        <div class="resumo-alertas">
+          <div class="resumo-item">
+            <div class="resumo-icone muito-alto">
+              <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+            <div class="resumo-texto">
+              <h2>3</h2>
+              <p>Risco Muito Alto</p>
+            </div>
+          </div>
+
+          <div class="resumo-item">
+            <div class="resumo-icone alto">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="resumo-texto">
+              <h2>7</h2>
+              <p>Risco Alto</p>
+            </div>
+          </div>
+
+          <div class="resumo-item">
+            <div class="resumo-icone moderado">
+              <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <div class="resumo-texto">
+              <h2>12</h2>
+              <p>Risco Moderado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Alertas Recentes -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Alertas Recentes</h3>
+        </div>
+
+        <div class="alertas-recentes-lista">
+          <div class="alerta-recente severidade-muito-alta">
+            <div class="alerta-recente-info">
+              <div class="alerta-recente-icone">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+              <div class="alerta-recente-texto">
+                <h4>Risco Muito Alto de Alagamento</h4>
+                <p>Boa Vista, Recife - PE</p>
+                <small>Atualizado há 10 min</small>
+              </div>
+            </div>
+            <button class="btn-ver-mapa">Ver no mapa</button>
+          </div>
+
+          <div class="alerta-recente severidade-alta">
+            <div class="alerta-recente-info">
+              <div class="alerta-recente-icone">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+              <div class="alerta-recente-texto">
+                <h4>Risco Alto de Alagamento</h4>
+                <p>Santo Amaro, Recife - PE</p>
+                <small>Atualizado há 25 min</small>
+              </div>
+            </div>
+            <button class="btn-ver-mapa">Ver no mapa</button>
+          </div>
+
+          <div class="alerta-recente severidade-moderada">
+            <div class="alerta-recente-info">
+              <div class="alerta-recente-icone">
+                <i class="fa-solid fa-cloud-showers-heavy"></i>
+              </div>
+              <div class="alerta-recente-texto">
+                <h4>Chuvas Moderadas</h4>
+                <p>Zona Norte, Recife - PE</p>
+                <small>Atualizado há 40 min</small>
+              </div>
+            </div>
+            <button class="btn-ver-mapa">Ver no mapa</button>
+          </div>
+
+          <div class="alerta-recente severidade-moderada">
+            <div class="alerta-recente-info">
+              <div class="alerta-recente-icone">
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+              <div class="alerta-recente-texto">
+                <h4>Risco Moderado de Alagamento</h4>
+                <p>Imbiribeira, Recife - PE</p>
+                <small>Atualizado há 1 h</small>
+              </div>
+            </div>
+            <button class="btn-ver-mapa">Ver no mapa</button>
+          </div>
+        </div>
+
+        <div class="ver-todos-wrapper">
+          <button class="btn-link">Ver todos os alertas</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
