@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mapa de Alagamentos - Recife Contra a Maré</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8f8f8;
+            color: #171717;
+        }
+
+        /* ================= HEADER ================= */
+
+        .header {
+            height: 82px;
+            margin: 12px;
+            border: 1px solid #aaa;
+            border-radius: 10px;
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #222;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+        }
+
+        .user-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .notification {
+            font-size: 23px;
+            margin-right: 15px;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #ddd;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 23px;
+            color: #777;
+        }
+
+        .user-name {
+            font-weight: bold;
+        }
+
+        /* ================= LAYOUT ================= */
+
+        .layout {
+            display: flex;
+            gap: 15px;
+            margin: 0 12px 12px;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            width: 245px;
+            min-height: calc(100vh - 110px);
+
+            background: white;
+            border: 1px solid #aaa;
+            border-radius: 10px;
+
+            padding: 25px 12px;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #222;
+
+            padding: 13px 12px;
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            font-size: 16px;
+        }
+
+        .menu a i {
+            width: 25px;
+            font-size: 21px;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            background: #e5e5e5;
+        }
+
+        .sidebar-bottom {
+            margin-top: auto;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            flex: 1;
+            background: white;
+            border: 1px solid #aaa;
+            border-radius: 10px;
+
+            padding: 15px;
+        }
+
+        .title-area {
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #ccc;
+            padding: 0 10px;
+        }
+
+        .title-area h2 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .fullscreen {
+            border: 1px solid #aaa;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        /* ================= FILTERS ================= */
+
+        .filters {
+            display: flex;
+            gap: 12px;
+            padding: 15px 0;
+        }
+
+        .filter,
+        .search,
+        .filter-button {
+            height: 45px;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .filter {
+            padding: 0 15px;
+            min-width: 185px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter i {
+            margin-right: 8px;
+        }
+
+        .search {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 15px;
+            color: #777;
+        }
+
+        .search input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .filter-button {
+            padding: 0 18px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* ================= MAP + PANEL ================= */
+
+        .content {
+            display: flex;
+            gap: 15px;
+        }
+
+        .map-container {
+            flex: 1;
+            height: 615px;
+            border: 1px solid #aaa;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(35deg, transparent 48%, #d1d1d1 49%, #d1d1d1 50%, transparent 51%),
+                linear-gradient(120deg, transparent 48%, #d1d1d1 49%, #d1d1d1 50%, transparent 51%),
+                #eeeeee;
+
+            background-size: 190px 150px;
+        }
+
+        /* ruas do mapa */
+
+        .map-container::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(90deg,
+                    transparent 20%,
+                    #d5d5d5 20.5%,
+                    transparent 21%,
+                    transparent 60%,
+                    #d5d5d5 60.5%,
+                    transparent 61%),
+
+                linear-gradient(25deg,
+                    transparent 45%,
+                    #d0d0d0 45.5%,
+                    transparent 46%);
+
+            opacity: .8;
+        }
+
+        .map-name {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .recife {
+            left: 48%;
+            top: 47%;
+            font-size: 25px;
+        }
+
+        .boa-viagem {
+            right: 12%;
+            bottom: 17%;
+        }
+
+        .santo-amaro {
+            left: 12%;
+            top: 25%;
+        }
+
+        .afogados {
+            left: 10%;
+            bottom: 25%;
+        }
+
+        /* ================= MAP MARKERS ================= */
+
+        .marker {
+            position: absolute;
+            z-index: 5;
+
+            width: 25px;
+            height: 25px;
+
+            background: #555;
+            border: 3px solid white;
+            border-radius: 50% 50% 50% 0;
+
+            transform: rotate(-45deg);
+
+            box-shadow: 0 1px 4px #777;
+        }
+
+        .marker::after {
+            content: "";
+            position: absolute;
+
+            width: 7px;
+            height: 7px;
+
+            background: white;
+            border-radius: 50%;
+
+            top: 6px;
+            left: 6px;
+        }
+
+        .m1 { top: 15%; left: 35%; }
+        .m2 { top: 30%; left: 23%; }
+        .m3 { top: 32%; left: 55%; }
+        .m4 { top: 52%; left: 39%; }
+        .m5 { top: 61%; left: 22%; }
+        .m6 { bottom: 25%; left: 53%; }
+        .m7 { bottom: 37%; left: 14%; }
+        .m8 { top: 42%; right: 18%; }
+
+        /* ================= MAP CONTROLS ================= */
+
+        .map-controls {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            z-index: 10;
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .map-control {
+            width: 40px;
+            height: 40px;
+
+            background: white;
+            border: 1px solid #aaa;
+            border-radius: 7px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+        }
+
+        /* ================= LEGEND ================= */
+
+        .legend {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+
+            background: white;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+
+            padding: 15px;
+            width: 150px;
+            z-index: 10;
+        }
+
+        .legend h3 {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+
+        .risk {
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background: #444;
+        }
+
+        .risk.high {
+            background: #777;
+        }
+
+        .risk.medium {
+            background: #aaa;
+        }
+
+        .risk.low {
+            background: #ccc;
+        }
+
+        /* ================= SIDE PANEL ================= */
+
+        .right-panel {
+            width: 315px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .card {
+            border: 1px solid #aaa;
+            border-radius: 10px;
+            padding: 18px;
+            background: white;
+        }
+
+        .card-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 18px;
+        }
+
+        .card-title h3 {
+            font-size: 16px;
+        }
+
+        .selected-location {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .selected-location i {
+            font-size: 28px;
+        }
+
+        .selected-location strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .selected-location p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .risk-label {
+            display: inline-block;
+
+            margin-top: 10px;
+
+            padding: 5px 10px;
+            border-radius: 15px;
+
+            background: #ddd;
+            font-size: 12px;
+        }
+
+        .information {
+            border-top: 1px solid #ccc;
+            padding-top: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .info-row span:first-child {
+            color: #666;
+        }
+
+        /* ================= REPORTS ================= */
+
+        .report {
+            display: flex;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .report:last-child {
+            border-bottom: none;
+        }
+
+        .report-icon {
+            width: 25px;
+            height: 25px;
+            background: #ddd;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .report strong {
+            font-size: 13px;
+        }
+
+        .report p {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .report-time {
+            margin-left: auto;
+            font-size: 11px;
+            color: #777;
+            white-space: nowrap;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .action-button {
+            width: 100%;
+            height: 42px;
+
+            border: 1px solid #aaa;
+            background: #f7f7f7;
+
+            border-radius: 7px;
+
+            margin-top: 8px;
+            cursor: pointer;
+
+            font-size: 13px;
+        }
+
+        .action-button:hover {
+            background: #e5e5e5;
+        }
+
+        /* ================= BOTTOM LEGEND ================= */
+
+        .bottom-legend {
+            margin-top: 15px;
+
+            border: 1px solid #aaa;
+            border-radius: 9px;
+
+            padding: 15px;
+
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .bottom-legend h3 {
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .bottom-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+        }
+
+        .bottom-circle {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #aaa;
+        }
+
+        .bottom-circle.dark {
+            background: #444;
+        }
+
+        .bottom-circle.light {
+            background: #ddd;
+        }
+
+        /* ================= RESPONSIVO ================= */
+
+        @media (max-width: 1100px) {
+
+            .sidebar {
+                width: 190px;
+            }
+
+            .right-panel {
+                width: 270px;
+            }
+
+            .filters {
+                flex-wrap: wrap;
+            }
+
+            .filter {
+                min-width: 150px;
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            .sidebar {
+                width: 70px;
+                padding: 15px 8px;
+            }
+
+            .menu a {
+                justify-content: center;
+            }
+
+            .menu a span,
+            .sidebar-bottom span {
+                display: none;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .right-panel {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .map-container {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding: 0 12px;
+            }
+
+            .logo-text p,
+            .user-name {
+                display: none;
+            }
+
+            .layout {
+                margin: 0 5px 5px;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .right-panel {
+                display: block;
+            }
+
+            .filters {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .filter,
+            .search,
+            .filter-button {
+                width: 100%;
+            }
+
+            .search {
+                grid-column: span 2;
+            }
+
+            .map-container {
+                height: 450px;
+            }
+
+            .bottom-legend {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo-area">
+
+            <div class="logo">
+                <i class="fa-solid fa-umbrella"></i>
+            </div>
+
+            <div class="logo-text">
+                <h1>RECIFE CONTRA A MARÉ</h1>
+                <p>Monitoramento de Chuvas e Alagamentos</p>
+            </div>
+
+        </div>
+
+        <div class="user-area">
+
+            <i class="fa-regular fa-bell notification"></i>
+
+            <div class="avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <span class="user-name">João Silva</span>
+
+            <i class="fa-solid fa-chevron-down"></i>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= LAYOUT ================= -->
+
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <nav class="menu">
+
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Início</span>
+                </a>
+
+                <a href="mapa.html" class="active">
+                    <i class="fa-regular fa-map"></i>
+                    <span>Mapa</span>
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Alertas</span>
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <span>Registrar Problema</span>
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-road"></i>
+                    <span>Rotas Seguras</span>
+                </a>
+
+                <a href="#">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a href="#">
+                    <i class="fa-regular fa-circle-question"></i>
+                    <span>Ajuda</span>
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main">
+
+            <!-- TÍTULO -->
+
+            <div class="title-area">
+
+                <h2>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Mapa de Alagamentos
+                </h2>
+
+                <button class="fullscreen">
+                    <i class="fa-solid fa-expand"></i>
+                    &nbsp; Tela cheia
+                </button>
+
+            </div>
+
+
+            <!-- FILTROS -->
+
+            <div class="filters">
+
+                <div class="filter">
+                    <span>
+                        <i class="fa-solid fa-layer-group"></i>
+                        Camadas
+                    </span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <div class="filter">
+                    <span>Nível de Risco</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <div class="filter">
+                    <span>Tipo de Alagamento</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <div class="search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Buscar endereço ou lugar"
+                    >
+
+                </div>
+
+                <button class="filter-button">
+
+                    <i class="fa-solid fa-filter"></i>
+                    Filtros
+
+                </button>
+
+            </div>
+
+
+            <!-- MAPA + PAINEL -->
+
+            <div class="content">
+
+                <!-- MAPA -->
+
+                <div class="map-container">
+
+                    <div class="map-controls">
+
+                        <div class="map-control">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+
+                        <div class="map-control">
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+
+                        <div class="map-control">
+                            <i class="fa-solid fa-crosshairs"></i>
+                        </div>
+
+                        <div class="map-control">
+                            <i class="fa-solid fa-list"></i>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Nomes das regiões -->
+
+                    <span class="map-name recife">RECIFE</span>
+                    <span class="map-name santo-amaro">SANTO AMARO</span>
+                    <span class="map-name afogados">AFOGADOS</span>
+                    <span class="map-name boa-viagem">BOA VIAGEM</span>
+
+
+                    <!-- Marcadores -->
+
+                    <div class="marker m1"></div>
+                    <div class="marker m2"></div>
+                    <div class="marker m3"></div>
+                    <div class="marker m4"></div>
+                    <div class="marker m5"></div>
+                    <div class="marker m6"></div>
+                    <div class="marker m7"></div>
+                    <div class="marker m8"></div>
+
+
+                    <!-- Legenda -->
+
+                    <div class="legend">
+
+                        <h3>Nível de Risco</h3>
+
+                        <div class="legend-item">
+                            <div class="risk"></div>
+                            Muito Alto
+                        </div>
+
+                        <div class="legend-item">
+                            <div class="risk high"></div>
+                            Alto
+                        </div>
+
+                        <div class="legend-item">
+                            <div class="risk medium"></div>
+                            Moderado
+                        </div>
+
+                        <div class="legend-item">
+                            <div class="risk low"></div>
+                            Baixo
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAINEL DIREITO -->
+
+                <div class="right-panel">
+
+
+                    <!-- PONTO SELECIONADO -->
+
+                    <div class="card">
+
+                        <div class="card-title">
+
+                            <h3>Ponto Selecionado</h3>
+
+                            <i class="fa-solid fa-xmark"></i>
+
+                        </div>
+
+
+                        <div class="selected-location">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <div>
+
+                                <strong>Rua da Aurora, 123</strong>
+
+                                <p>Boa Vista, Recife - PE</p>
+
+                                <span class="risk-label">
+                                    Risco Alto
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="information">
+
+                            <div class="info-row">
+                                <span>Tipo de alagamento</span>
+                                <strong>Rua alagada</strong>
+                            </div>
+
+                            <div class="info-row">
+                                <span>Última atualização</span>
+                                <strong>Há 10 min</strong>
+                            </div>
+
+                            <div class="info-row">
+                                <span>Profundidade estimada</span>
+                                <strong>25 - 40 cm</strong>
+                            </div>
+
+                            <div class="info-row">
+                                <span>Ocorrências</span>
+                                <strong>7 relatos</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RELATOS -->
+
+                    <div class="card">
+
+                        <div class="card-title">
+
+                            <h3>Relatos Recentes</h3>
+
+                            <span style="font-size: 12px;">
+                                Ver todos
+                            </span>
+
+                        </div>
+
+
+                        <div class="report">
+
+                            <div class="report-icon"></div>
+
+                            <div>
+
+                                <strong>Rua da Aurora, 123</strong>
+
+                                <p>Água na altura do meio fio.</p>
+
+                            </div>
+
+                            <span class="report-time">
+                                Há 8 min
+                            </span>
+
+                        </div>
+
+
+                        <div class="report">
+
+                            <div class="report-icon"></div>
+
+                            <div>
+
+                                <strong>Av. Norte Miguel Arraes</strong>
+
+                                <p>Trânsito lento devido ao alagamento.</p>
+
+                            </div>
+
+                            <span class="report-time">
+                                Há 12 min
+                            </span>
+
+                        </div>
+
+
+                        <div class="report">
+
+                            <div class="report-icon"></div>
+
+                            <div>
+
+                                <strong>Rua dos Coelhos</strong>
+
+                                <p>Bueiro entupido, água acumulando.</p>
+
+                            </div>
+
+                            <span class="report-time">
+                                Há 18 min
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AÇÕES -->
+
+                    <div class="card">
+
+                        <div class="card-title">
+                            <h3>Ações Rápidas</h3>
+                        </div>
+
+                        <button class="action-button">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+                            &nbsp; Como me proteger
+
+                        </button>
+
+                        <button class="action-button">
+
+                            <i class="fa-solid fa-circle-plus"></i>
+                            &nbsp; Registrar problema aqui
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- LEGENDA INFERIOR -->
+
+            <div class="bottom-legend">
+
+                <h3>Legenda do Mapa</h3>
+
+                <div class="bottom-item">
+                    <div class="bottom-circle light"></div>
+                    Sem risco
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-circle light"></div>
+                    Baixo
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-circle"></div>
+                    Moderado
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-circle"></div>
+                    Alto
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-circle dark"></div>
+                    Muito alto
+                </div>
+
+                <div class="bottom-item">
+                    <i class="fa-solid fa-water"></i>
+                    Áreas alagadas
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
