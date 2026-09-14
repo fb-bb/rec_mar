@@ -1,183 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recife Contra a Maré</title>
+IDEALIZAÇÃO
+do App “Recife Contra a Maré”
 
-    <link rel="stylesheet" href="style.css">
+O aplicativo será uma ferramenta inteligente para ajudar moradores de Recife a se protegerem de alagamentos e chuvas fortes.
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-</head>
+Ele vai:
 
-<body>
+ Enviar alertas em tempo real sobre risco de alagamentos com base em dados da APAC
 
-    <!-- Cabeçalho -->
-    <header class="header">
+ Mostrar um mapa interativo com áreas alagadas e rotas seguras
 
-        <div class="logo-area">
-            <img src="rec_mar.webp" class="logo" alt="Logo Recife Contra a Maré">
+Permitir que moradores registrem problemas, como ruas alagadas e bueiros entupidos
 
-            <div class="texto-logo">
-                <h2>RECIFE CONTRA A MARÉ</h2>
-                <p>Monitoramento de Chuvas e Alagamentos</p>
-            </div>
-        </div>
+Usar sensores e dados climáticos para prever enchentes antes que aconteçam
 
-        <div class="usuario">
-            <i class="fa-solid fa-circle-user"></i>
-            <span>Arthur Mendez</span>
-        </div>
+ Ajudar a Prefeitura do Recife a agir mais rápido em áreas críticas
 
-    </header>
 
-    <!-- Layout -->
-    <div class="layout">
 
-        <!-- Menu -->
-        <aside class="sidebar">
+---
+ Objetivo principal
 
-            <nav>
+Reduzir riscos, evitar prejuízos e ajudar a salvar vidas durante períodos de chuva intensa.
+———————————————
+Briefing
+– Recife Contra a Maré
 
-                <a href="#" class="item ativo">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Início</span>
-                </a>
+Nome do Projeto: Recife Contra a Maré
 
-                <a href="#" class="item">
-                    <i class="fa-regular fa-map"></i>
-                    <span>Mapa</span>
-                </a>
+Descrição:
+O Recife Contra a Maré é um aplicativo inteligente desenvolvido para ajudar os moradores de Recife a se protegerem contra alagamentos e chuvas intensas. A plataforma oferece informações em tempo real, previsão de enchentes e ferramentas de participação da população para aumentar a segurança e melhorar a resposta das autoridades.
 
-                <a href="#" class="item">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <span>Alertas</span>
-                </a>
+Principais Funcionalidades:
 
-                <a href="#" class="item">
-                    <i class="fa-solid fa-circle-plus"></i>
-                    <span>Registrar Problema</span>
-                </a>
+Envio de alertas em tempo real sobre riscos de alagamentos com base nos dados da APAC.
+Mapa interativo com áreas alagadas e rotas seguras.
+Registro de ocorrências pelos moradores, como ruas alagadas e bueiros entupidos.
+Previsão de enchentes utilizando sensores e dados climáticos.
+Apoio à Prefeitura do Recife na identificação e resposta rápida às áreas de maior risco.
 
-                <a href="#" class="item">
-                    <i class="fa-solid fa-road"></i>
-                    <span>Rotas Seguras</span>
-                </a>
-
-                <a href="#" class="item">
-                    <i class="fa-regular fa-user"></i>
-                    <span>Perfil</span>
-                </a>
-
-            </nav>
-
-            <div class="rodape">
-
-                <a href="#" class="item">
-                    <i class="fa-regular fa-circle-question"></i>
-                    <span>Ajuda</span>
-                </a>
-
-                <a href="#" class="item">
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Configurações</span>
-                </a>
-
-            </div>
-
-        </aside>
-
-        <!-- Conteúdo -->
-        <main class="conteudo">
-
-            <!-- Card Tempo -->
-            <div class="card-tempo">
-
-                <h3>Tempo Agora</h3>
-
-                <div class="tempo-principal">
-
-                    <div class="icone-clima">
-                        <i class="fa-solid fa-cloud-sun"></i>
-                    </div>
-
-                    <div class="temperatura">
-                        <h1>24°C</h1>
-                        <p>Nublado</p>
-                    </div>
-
-                </div>
-
-                <hr>
-
-                <div class="info-clima">
-
-                    <div class="item-clima">
-                        <i class="fa-solid fa-droplet"></i>
-                        <h4>Umidade</h4>
-                        <p>78%</p>
-                    </div>
-
-                    <div class="item-clima">
-                        <i class="fa-solid fa-wind"></i>
-                        <h4>Vento</h4>
-                        <p>15 km/h</p>
-                    </div>
-
-                    <div class="item-clima">
-                        <i class="fa-solid fa-cloud-rain"></i>
-                        <h4>Chuva</h4>
-                        <p>0,5 mm</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Card Alertas -->
-            <div class="card-alertas">
-
-                <h3>Alertas Ativos</h3>
-
-                <div class="alertas-principais">
-
-                    <div class="alerta">
-
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-
-                        <div>
-
-                            <h4>Risco Alto de Alagamento</h4>
-                            <p>Boa Viagem</p>
-                            <small>Atualizado há 10 minutos</small>
-
-                        </div>
-
-                    </div>
-
-                    <div class="alerta">
-
-                        <i class="fa-solid fa-cloud-rain"></i>
-
-                        <div>
-
-                            <h4>Chuvas Moderadas</h4>
-                            <p>Zona Sul</p>
-                            <small>Atualizado há 25 minutos</small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </main>
-
-    </div>
-
-</body>
-</html>
+Objetivo Principal:
+Reduzir os riscos causados por alagamentos, diminuir prejuízos materiais e contribuir para a proteção da população durante períodos de chuvas intensas. 
