@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Registrar Problema - Recife Contra a Maré</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+  <div class="logo-area">
+
+    <button
+      class="icon-button mobile-menu"
+      id="mobile-menu"
+      aria-label="Abrir menu"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <img
+      src="img/rec_mar.webp"
+      alt="Recife Contra a Maré"
+      class="logo"
+    >
+
+    <div class="texto-logo">
+      <h2>RECIFE CONTRA A MARÉ</h2>
+      <p>Monitoramento de chuvas e alagamentos</p>
+    </div>
+
+  </div>
+
+  <div class="usuario">
+
+    <button class="icon-button" aria-label="Notificações">
+      <i class="fa-regular fa-bell"></i>
+    </button>
+
+    <a
+      class="avatar-area"
+      href="dashboard.html"
+      style="text-decoration:none"
+    >
+      <span class="avatar-circle">FL</span>
+
+      <span class="avatar-copy">
+        <strong>F. Lins de Araujo</strong>
+        <span>Área do usuário</span>
+      </span>
+
+      <i
+        class="fa-solid fa-chevron-down"
+        style="font-size:10px;color:#8b97a9"
+      ></i>
+    </a>
+
+  </div>
+
+</header>
+
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div>
+
+      <div class="sidebar-section-label">
+        Navegação
+      </div>
+
+      <nav>
+
+        <a href="index.html" class="item">
+          <i class="fa-solid fa-house"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="mapa.html" class="item">
+          <i class="fa-regular fa-map"></i>
+          <span>Mapa</span>
+        </a>
+
+        <a href="alertas.html" class="item">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Alertas</span>
+        </a>
+
+        <a
+          href="registrar-problema.html"
+          class="item ativo"
+        >
+          <i class="fa-regular fa-square-plus"></i>
+          <span>Registrar problema</span>
+        </a>
+
+        <a href="rotas-seguras.html" class="item">
+          <i class="fa-solid fa-route"></i>
+          <span>Rotas seguras</span>
+        </a>
+
+        <a href="dashboard.html" class="item">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Meu painel</span>
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <div class="rodape">
+
+      <a href="#" class="item">
+        <i class="fa-regular fa-circle-question"></i>
+        <span>Ajuda</span>
+      </a>
+
+      <a href="#" class="item">
+        <i class="fa-solid fa-gear"></i>
+        <span>Configurações</span>
+      </a>
+
+    </div>
+
+  </aside>
+
+
+  <!-- CONTEÚDO -->
+
+  <main class="conteudo">
+
+    <div class="page-header">
+
+      <div class="page-heading">
+
+        <h1>Registrar nova ocorrência</h1>
+
+        <p>
+          Envie fotos e detalhes de pontos de alagamento ou
+          problemas identificados para ajudar a comunidade.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="register-layout">
+
+
+      <!-- FORMULÁRIO -->
+
+      <section class="card register-card">
+
+        <div class="register-header">
+
+          <h2>Registrar Nova Ocorrência</h2>
+
+          <p>
+            Ajude a comunidade informando problemas encontrados
+            durante períodos de chuva.
+          </p>
+
+        </div>
+
+
+        <form id="form-ocorrencia">
+
+
+          <!-- TIPO -->
+
+          <div class="form-group">
+
+            <label for="tipo">
+              Tipo de ocorrência
+            </label>
+
+            <select id="tipo" name="tipo">
+
+              <option value="alagamento">
+                Alagamento de via
+              </option>
+
+              <option value="bueiro">
+                Bueiro entupido
+              </option>
+
+              <option value="deslizamento">
+                Deslizamento
+              </option>
+
+              <option value="arvore">
+                Árvore caída
+              </option>
+
+              <option value="outro">
+                Outro problema
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- LOCALIZAÇÃO -->
+
+          <div class="form-group">
+
+            <label for="localizacao">
+              Localização
+            </label>
+
+            <div class="input-icon">
+
+              <i class="fa-solid fa-location-dot"></i>
+
+              <input
+                type="text"
+                id="localizacao"
+                name="localizacao"
+                placeholder="Informe o endereço ou ponto de referência"
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- GRAVIDADE -->
+
+          <div class="form-group">
+
+            <label>
+              Nível de gravidade
+            </label>
+
+            <div class="severity-grid">
+
+              <label class="severity low">
+                <input
+                  type="radio"
+                  name="gravidade"
+                  value="baixo"
+                  checked
+                >
+                <span>
+                  <i class="fa-solid fa-circle"></i>
+                  Baixo
+                </span>
+              </label>
+
+
+              <label class="severity moderate">
+                <input
+                  type="radio"
+                  name="gravidade"
+                  value="medio"
+                >
+                <span>
+                  <i class="fa-solid fa-circle"></i>
+                  Médio
+                </span>
+              </label>
+
+
+              <label class="severity high">
+                <input
+                  type="radio"
+                  name="gravidade"
+                  value="alto"
+                >
+                <span>
+                  <i class="fa-solid fa-circle"></i>
+                  Alto
+                </span>
+              </label>
+
+
+              <label class="severity critical">
+                <input
+                  type="radio"
+                  name="gravidade"
+                  value="critico"
+                >
+                <span>
+                  <i class="fa-solid fa-circle"></i>
+                  Crítico
+                </span>
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- DESCRIÇÃO -->
+
+          <div class="form-group">
+
+            <label for="descricao">
+              Descrição do problema
+            </label>
+
+            <textarea
+              id="descricao"
+              name="descricao"
+              rows="5"
+              placeholder="Descreva o que está acontecendo, condições da via ou outros detalhes importantes."
+            ></textarea>
+
+          </div>
+
+
+          <!-- FOTO -->
+
+          <div class="form-group">
+
+            <label>
+              Anexar foto da situação
+            </label>
+
+            <label
+              class="upload-area"
+              for="foto"
+            >
+
+              <i class="fa-solid fa-camera"></i>
+
+              <strong>
+                Tirar foto ou carregar arquivo
+              </strong>
+
+              <span>
+                PNG, JPG ou JPEG até 10MB
+              </span>
+
+              <input
+                type="file"
+                id="foto"
+                name="foto"
+                accept="image/png,image/jpeg"
+              >
+
+            </label>
+
+          </div>
+
+
+          <!-- BOTÃO -->
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-block register-submit"
+          >
+
+            <i class="fa-solid fa-plus"></i>
+
+            Enviar registro de ocorrência
+
+          </button>
+
+        </form>
+
+      </section>
+
+
+      <!-- COLUNA DIREITA -->
+
+      <aside class="register-side">
+
+
+        <!-- COMO AJUDA -->
+
+        <section class="card register-help">
+
+          <div class="register-side-title">
+
+            <i class="fa-regular fa-circle-question"></i>
+
+            <h3>
+              Como seu registro ajuda?
+            </h3>
+
+          </div>
+
+          <p>
+            Seu relato é enviado em tempo real para o painel da
+            Defesa Civil do Recife e ajuda a alertar outros
+            moradores que utilizam o recurso de rotas seguras do
+            aplicativo.
+          </p>
+
+        </section>
+
+
+        <!-- REGISTROS RECENTES -->
+
+        <section class="card recent-card">
+
+          <div class="card-header">
+
+            <div>
+              <h3>Seus registros recentes</h3>
+            </div>
+
+            <a
+              href="dashboard.html"
+              class="btn btn-ghost"
+            >
+              Ver todos
+            </a>
+
+          </div>
+
+
+          <div class="recent-list">
+
+
+            <div class="recent-item">
+
+              <div class="recent-status danger"></div>
+
+              <div class="recent-info">
+
+                <strong>
+                  Alagamento crítico
+                </strong>
+
+                <span>
+                  Boa Viagem · Há 2 horas
+                </span>
+
+              </div>
+
+              <span class="chip chip-info">
+                Em análise
+              </span>
+
+            </div>
+
+
+            <div class="recent-item">
+
+              <div class="recent-status success"></div>
+
+              <div class="recent-info">
+
+                <strong>
+                  Bueiro entupido
+                </strong>
+
+                <span>
+                  Zona Norte · Ontem
+                </span>
+
+              </div>
+
+              <span class="chip chip-success">
+                Resolvido
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </section>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+</div>
+
+
+<script>
+
+const menuButton = document.getElementById("mobile-menu");
+const sidebar = document.querySelector(".sidebar");
+
+if (menuButton) {
+  menuButton.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+  });
+}
+
+
+const form = document.getElementById("form-ocorrencia");
+
+form.addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  alert("Ocorrência registrada com sucesso!");
+
+});
+
+</script>
+
+</body>
+</html>

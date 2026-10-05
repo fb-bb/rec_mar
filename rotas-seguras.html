@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rotas Seguras · Recife Contra a Maré</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+  <div class="logo-area">
+
+    <button
+      class="icon-button mobile-menu"
+      id="mobile-menu"
+      aria-label="Abrir menu"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <img
+      src="img/rec_mar.webp"
+      alt="Recife Contra a Maré"
+      class="logo"
+    >
+
+    <div class="texto-logo">
+      <h2>RECIFE CONTRA A MARÉ</h2>
+      <p>Monitoramento de chuvas e alagamentos</p>
+    </div>
+
+  </div>
+
+
+  <div class="usuario">
+
+    <button class="icon-button" aria-label="Notificações">
+      <i class="fa-regular fa-bell"></i>
+    </button>
+
+    <a
+      class="avatar-area"
+      href="dashboard.html"
+      style="text-decoration:none"
+    >
+
+      <span class="avatar-circle">FL</span>
+
+      <span class="avatar-copy">
+        <strong>F. Lins de Araujo</strong>
+        <span>Área do usuário</span>
+      </span>
+
+      <i
+        class="fa-solid fa-chevron-down"
+        style="font-size:10px;color:#8b97a9"
+      ></i>
+
+    </a>
+
+  </div>
+
+</header>
+
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div>
+
+      <div class="sidebar-section-label">
+        Navegação
+      </div>
+
+      <nav>
+
+        <a href="index.html" class="item">
+          <i class="fa-solid fa-house"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="mapa.html" class="item">
+          <i class="fa-regular fa-map"></i>
+          <span>Mapa</span>
+        </a>
+
+        <a href="alertas.html" class="item">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Alertas</span>
+        </a>
+
+        <a href="registrar-problema.html" class="item">
+          <i class="fa-regular fa-square-plus"></i>
+          <span>Registrar problema</span>
+        </a>
+
+        <a
+          href="rotas-seguras.html"
+          class="item ativo"
+        >
+          <i class="fa-solid fa-route"></i>
+          <span>Rotas seguras</span>
+        </a>
+
+        <a href="dashboard.html" class="item">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Meu painel</span>
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <div class="rodape">
+
+      <a href="#" class="item">
+        <i class="fa-regular fa-circle-question"></i>
+        <span>Ajuda</span>
+      </a>
+
+      <a href="#" class="item">
+        <i class="fa-solid fa-gear"></i>
+        <span>Configurações</span>
+      </a>
+
+    </div>
+
+  </aside>
+
+
+  <!-- CONTEÚDO -->
+
+  <main class="conteudo">
+
+    <div class="page-header">
+
+      <div class="page-heading">
+
+        <h1>Rotas Seguras</h1>
+
+        <p>
+          Encontre o caminho mais seguro para transitar em dias de chuva.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="routes-layout">
+
+
+      <!-- COLUNA ESQUERDA -->
+
+      <div class="routes-left">
+
+
+        <!-- CONFIGURAR TRAJETO -->
+
+        <section class="card route-config">
+
+          <div class="route-card-title">
+
+            <h3>Configurar Trajeto</h3>
+
+          </div>
+
+
+          <div class="route-field">
+
+            <label for="origem">
+              ORIGEM
+            </label>
+
+            <div class="route-input">
+
+              <i class="fa-solid fa-location-dot"></i>
+
+              <input
+                type="text"
+                id="origem"
+                placeholder="Informe o ponto de partida"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="route-field">
+
+            <label for="destino">
+              DESTINO
+            </label>
+
+            <div class="route-input">
+
+              <i class="fa-solid fa-location-arrow"></i>
+
+              <input
+                type="text"
+                id="destino"
+                placeholder="Informe o destino"
+              >
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="btn btn-primary btn-block route-search"
+            id="btn-buscar-rota"
+          >
+
+            <i class="fa-solid fa-location-arrow"></i>
+
+            Buscar Rota Segura
+
+          </button>
+
+        </section>
+
+
+        <!-- ROTAS ENCONTRADAS -->
+
+        <section class="card routes-found">
+
+          <div class="route-card-title">
+
+            <h3>Rotas Encontradas</h3>
+
+          </div>
+
+
+          <div class="route-options">
+
+
+            <button class="route-option selected">
+
+              <div class="route-option-copy">
+
+                <strong>
+                  Via Cruz Cabugá
+                </strong>
+
+                <span>
+                  <b>18 min</b>
+                  <i></i>
+                  5,2 km
+                </span>
+
+              </div>
+
+              <span class="route-status safe">
+                Seguro
+              </span>
+
+            </button>
+
+
+            <button class="route-option">
+
+              <div class="route-option-copy">
+
+                <strong>
+                  Via Agamenon Magalhães
+                </strong>
+
+                <span>
+                  <b>24 min</b>
+                  <i></i>
+                  6,8 km
+                </span>
+
+              </div>
+
+              <span class="route-status attention">
+                Atenção
+              </span>
+
+            </button>
+
+
+            <button class="route-option">
+
+              <div class="route-option-copy">
+
+                <strong>
+                  Via Av. Sul / Imbiribeira
+                </strong>
+
+                <span>
+                  <b>32 min</b>
+                  <i></i>
+                  8,1 km
+                </span>
+
+              </div>
+
+              <span class="route-status avoid">
+                Evitar
+              </span>
+
+            </button>
+
+
+          </div>
+
+        </section>
+
+      </div>
+
+
+      <!-- MAPA -->
+
+      <div class="routes-right">
+
+        <section class="card route-map-card">
+
+          <div class="route-map-header">
+
+            <div>
+
+              <h3>
+                Visualização do Trajeto
+              </h3>
+
+            </div>
+
+
+            <div class="route-legend">
+
+              <span>
+                <i class="legend-route"></i>
+                Rota Segura
+              </span>
+
+              <span>
+                <i class="legend-danger"></i>
+                Área de Risco
+              </span>
+
+              <span>
+                <i class="legend-point"></i>
+                Ponto de Alagamento
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="route-map"
+            aria-label="Mapa da rota segura"
+          ></div>
+
+        </section>
+
+
+        <!-- CONDIÇÕES -->
+
+        <section class="critical-section">
+
+          <h3>
+            Condições Atuais de Vias Críticas
+          </h3>
+
+
+          <div class="critical-grid">
+
+
+            <div class="critical-card">
+
+              <span class="critical-dot safe"></span>
+
+              <div>
+
+                <strong>
+                  Av. Boa Viagem
+                </strong>
+
+                <span>
+                  Livre e sem ocorrências
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="critical-card">
+
+              <span class="critical-dot attention"></span>
+
+              <div>
+
+                <strong>
+                  Ponte do Pi...
+                </strong>
+
+                <span>
+                  Atenção - trânsito lento
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="critical-card">
+
+              <span class="critical-dot danger"></span>
+
+              <div>
+
+                <strong>
+                  Av. Mascarenhas
+                </strong>
+
+                <span>
+                  Ponto de alagamento ativo
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="critical-card">
+
+              <span class="critical-dot safe"></span>
+
+              <div>
+
+                <strong>
+                  Av. Agamenon Mag.
+                </strong>
+
+                <span>
+                  Fluxo normal
+                </span>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="./assets/js/app.js"></script>
+
+<script src="./assets/js/rotas-seguras.js"></script>
+
+</body>
+</html>

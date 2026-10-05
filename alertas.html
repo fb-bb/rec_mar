@@ -1,203 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alertas · Recife Contra a Maré</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="logo-area">
-      <img
-        src="img/rec_mar.webp"
-        alt="Logo do Recife Contra a Maré"
-        class="logo"
-      />
-      <div class="texto-logo">
-        <h2>RECIFE CONTRA A MARÉ</h2>
-        <p>Monitoramento de Chuvas e Alagamentos</p>
-      </div>
-    </div>
-
-    <div class="usuario">
-      <i
-        class="fa-regular fa-bell"
-        style="font-size: 22px; color: #555; cursor: pointer"
-      ></i>
-      <div class="avatar-area">
-        <i class="fa-solid fa-circle-user"></i>
-        <span>F. Lins de Araujo</span>
-        <i
-          class="fa-solid fa-chevron-down"
-          style="font-size: 12px; margin-left: 4px"
-        ></i>
-      </div>
-    </div>
-  </header>
-
-  <!-- Layout -->
-  <div class="layout">
-    <!-- Menu -->
-    <aside class="sidebar">
-      <nav>
-        <a href="index.html" class="item">
-          <i class="fa-solid fa-house"></i>
-          <span>Início</span>
-        </a>
-        <a href="#" class="item">
-          <i class="fa-regular fa-map"></i>
-          <span>Mapa</span>
-        </a>
-        <a href="#" class="item ativo">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          <span>Alertas</span>
-        </a>
-        <a href="#" class="item">
-          <i class="fa-solid fa-circle-plus"></i>
-          <span>Registrar Problema</span>
-        </a>
-        <a href="#" class="item">
-          <i class="fa-solid fa-road"></i>
-          <span>Rotas Seguras</span>
-        </a>
-        <a href="#" class="item">
-          <i class="fa-regular fa-user"></i>
-          <span>Perfil</span>
-        </a>
-      </nav>
-
-      <div class="rodape">
-        <a href="#" class="item">
-          <i class="fa-regular fa-circle-question"></i>
-          <span>Ajuda</span>
-        </a>
-        <a href="#" class="item">
-          <i class="fa-solid fa-gear"></i>
-          <span>Configurações</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Conteúdo -->
-    <div class="conteudo">
-      <!-- Card: Resumo de Alertas Ativos -->
-      <div class="card">
-        <div class="card-header">
-          <div class="pagina-titulo">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <h1>Alertas Ativos</h1>
-          </div>
-        </div>
-
-        <div class="resumo-alertas">
-          <div class="resumo-item">
-            <div class="resumo-icone muito-alto">
-              <i class="fa-solid fa-circle-exclamation"></i>
-            </div>
-            <div class="resumo-texto">
-              <h2>3</h2>
-              <p>Risco Muito Alto</p>
-            </div>
-          </div>
-
-          <div class="resumo-item">
-            <div class="resumo-icone alto">
-              <i class="fa-solid fa-triangle-exclamation"></i>
-            </div>
-            <div class="resumo-texto">
-              <h2>7</h2>
-              <p>Risco Alto</p>
-            </div>
-          </div>
-
-          <div class="resumo-item">
-            <div class="resumo-icone moderado">
-              <i class="fa-solid fa-circle-info"></i>
-            </div>
-            <div class="resumo-texto">
-              <h2>12</h2>
-              <p>Risco Moderado</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card: Alertas Recentes -->
-      <div class="card">
-        <div class="card-header">
-          <h3>Alertas Recentes</h3>
-        </div>
-
-        <div class="alertas-recentes-lista">
-          <div class="alerta-recente severidade-muito-alta">
-            <div class="alerta-recente-info">
-              <div class="alerta-recente-icone">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-              </div>
-              <div class="alerta-recente-texto">
-                <h4>Risco Muito Alto de Alagamento</h4>
-                <p>Boa Vista, Recife - PE</p>
-                <small>Atualizado há 10 min</small>
-              </div>
-            </div>
-            <button class="btn-ver-mapa">Ver no mapa</button>
-          </div>
-
-          <div class="alerta-recente severidade-alta">
-            <div class="alerta-recente-info">
-              <div class="alerta-recente-icone">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-              </div>
-              <div class="alerta-recente-texto">
-                <h4>Risco Alto de Alagamento</h4>
-                <p>Santo Amaro, Recife - PE</p>
-                <small>Atualizado há 25 min</small>
-              </div>
-            </div>
-            <button class="btn-ver-mapa">Ver no mapa</button>
-          </div>
-
-          <div class="alerta-recente severidade-moderada">
-            <div class="alerta-recente-info">
-              <div class="alerta-recente-icone">
-                <i class="fa-solid fa-cloud-showers-heavy"></i>
-              </div>
-              <div class="alerta-recente-texto">
-                <h4>Chuvas Moderadas</h4>
-                <p>Zona Norte, Recife - PE</p>
-                <small>Atualizado há 40 min</small>
-              </div>
-            </div>
-            <button class="btn-ver-mapa">Ver no mapa</button>
-          </div>
-
-          <div class="alerta-recente severidade-moderada">
-            <div class="alerta-recente-info">
-              <div class="alerta-recente-icone">
-                <i class="fa-solid fa-circle-info"></i>
-              </div>
-              <div class="alerta-recente-texto">
-                <h4>Risco Moderado de Alagamento</h4>
-                <p>Imbiribeira, Recife - PE</p>
-                <small>Atualizado há 1 h</small>
-              </div>
-            </div>
-            <button class="btn-ver-mapa">Ver no mapa</button>
-          </div>
-        </div>
-
-        <div class="ver-todos-wrapper">
-          <button class="btn-link">Ver todos os alertas</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+<header class="header"><div class="logo-area"><button class="icon-button mobile-menu" id="mobile-menu" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button><img src="img/rec_mar.webp" alt="Recife Contra a Maré" class="logo"><div class="texto-logo"><h2>RECIFE CONTRA A MARÉ</h2><p>Monitoramento de chuvas e alagamentos</p></div></div><div class="usuario"><button class="icon-button"><i class="fa-regular fa-bell"></i></button><a class="avatar-area" href="dashboard.html" style="text-decoration:none"><span class="avatar-circle">FL</span><span class="avatar-copy"><strong>F. Lins de Araujo</strong><span>Área do usuário</span></span></a></div></header>
+<div class="layout"><aside class="sidebar"><div><div class="sidebar-section-label">Navegação</div><nav><a href="index.html" class="item"><i class="fa-solid fa-house"></i><span>Início</span></a><a href="mapa.html" class="item"><i class="fa-regular fa-map"></i><span>Mapa</span></a><a href="alertas.html" class="item ativo"><i class="fa-solid fa-triangle-exclamation"></i><span>Alertas</span></a><a href="registrar-problema.html" class="item"><i class="fa-regular fa-square-plus"></i><span>Registrar problema</span></a><a href="rotas-seguras.html" class="item"><i class="fa-solid fa-route"></i><span>Rotas seguras</span></a><a href="dashboard.html" class="item"><i class="fa-solid fa-chart-line"></i><span>Meu painel</span></a></nav></div><div class="rodape"><a href="#" class="item"><i class="fa-regular fa-circle-question"></i><span>Ajuda</span></a><a href="#" class="item"><i class="fa-solid fa-gear"></i><span>Configurações</span></a></div></aside>
+<main class="conteudo">
+  <div class="page-header"><div class="page-heading"><h1>Alertas ativos</h1><p>Ocorrências e condições que podem afetar a mobilidade em Recife.</p></div><div class="page-actions"><a href="mapa.html" class="btn btn-secondary"><i class="fa-regular fa-map"></i> Ver mapa</a><a href="registrar-problema.html" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Registrar ocorrência</a></div></div>
+  <section class="alert-summary"><article class="card alert-summary-card danger"><div class="alert-summary-icon"><i class="fa-solid fa-circle-exclamation"></i></div><div><strong>3</strong><span>Risco muito alto</span></div></article><article class="card alert-summary-card danger"><div class="alert-summary-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><div><strong>7</strong><span>Risco alto</span></div></article><article class="card alert-summary-card"><div class="alert-summary-icon"><i class="fa-solid fa-cloud-rain"></i></div><div><strong>12</strong><span>Risco moderado</span></div></article></section>
+  <section class="card alert-table">
+    <div class="alert-table-row head"><span>Ocorrência</span><span>Nível</span><span>Atualização</span><span>Ação</span></div>
+    <div class="alert-table-row"><div class="alert-title"><span class="alert-title-icon"><i class="fa-solid fa-water"></i></span><div><h4>Risco muito alto de alagamento</h4><p>Boa Vista · Rua da Aurora</p></div></div><div><span class="chip chip-danger">Muito alto</span></div><div style="font-size:11px;color:var(--muted)">Há 10 min</div><a href="mapa.html?lat=-8.05788&lng=-34.88134" class="btn btn-secondary">Ver no mapa</a></div>
+    <div class="alert-table-row"><div class="alert-title"><span class="alert-title-icon"><i class="fa-solid fa-water"></i></span><div><h4>Risco alto de alagamento</h4><p>Santo Amaro · Av. Norte</p></div></div><div><span class="chip chip-danger">Alto</span></div><div style="font-size:11px;color:var(--muted)">Há 25 min</div><a href="mapa.html?lat=-8.04759&lng=-34.88472" class="btn btn-secondary">Ver no mapa</a></div>
+    <div class="alert-table-row"><div class="alert-title"><span class="alert-title-icon moderate"><i class="fa-solid fa-cloud-showers-heavy"></i></span><div><h4>Chuva moderada e drenagem lenta</h4><p>Casa Amarela · Estrada do Arraial</p></div></div><div><span class="chip chip-warning">Moderado</span></div><div style="font-size:11px;color:var(--muted)">Há 40 min</div><a href="mapa.html?lat=-8.02647&lng=-34.91717" class="btn btn-secondary">Ver no mapa</a></div>
+    <div class="alert-table-row"><div class="alert-title"><span class="alert-title-icon moderate"><i class="fa-solid fa-circle-info"></i></span><div><h4>Ponto de acúmulo de água</h4><p>Imbiribeira · Mascarenhas de Morais</p></div></div><div><span class="chip chip-warning">Moderado</span></div><div style="font-size:11px;color:var(--muted)">Há 1 h</div><a href="mapa.html?lat=-8.11209&lng=-34.90619" class="btn btn-secondary">Ver no mapa</a></div>
+  </section>
+</main></div>
+<script src="./assets/js/app.js"></script>
+</body></html>
