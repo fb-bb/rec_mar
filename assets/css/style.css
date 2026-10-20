@@ -1321,3 +1321,165 @@ button { -webkit-tap-highlight-color: transparent; }
   }
 
 }
+:root { --fs: 1; }
+:root[data-font="small"] { --fs: .9; }
+:root[data-font="large"] { --fs: 1.2; }
+body { font-size: calc(14px * var(--fs)); }
+
+/* Tema visual (cor de destaque) */
+:root[data-accent="verde"] { --primary: #1f7a57; --primary-dark: #165c42; --primary-soft: #e6f5ee; }
+:root[data-accent="coral"] { --primary: #b8461b; --primary-dark: #8f3412; --primary-soft: #fdeee6; }
+
+/* Modo escuro */
+:root[data-dark="true"] {
+  color-scheme: dark;
+  --bg: #0b1520; --surface: #111f2d; --surface-soft: #16283a;
+  --border: #243749; --border-strong: #31485c;
+  --text: #e6eef5; --muted: #9bb0c1; --muted-2: #7d93a6;
+  --nav: #0a1824; --nav-hover: #123146;
+  --primary: #4fb8cf; --primary-dark: #7accdc; --primary-soft: #12303b;
+  --danger: #ff7b83; --danger-soft: #3a1a1d;
+  --warning: #f0a64a; --warning-soft: #35260f;
+  --success: #52c79a; --success-soft: #123226;
+}
+:root[data-dark="true"][data-accent="verde"] { --primary: #52c79a; --primary-dark: #7fdab6; --primary-soft: #123226; }
+:root[data-dark="true"][data-accent="coral"] { --primary: #ff9b6b; --primary-dark: #ffb590; --primary-soft: #3d2113; }
+
+/* Alto contraste (vence o modo escuro) */
+:root[data-contrast="true"] {
+  color-scheme: dark;
+  --bg: #000; --surface: #000; --surface-soft: #000;
+  --border: #fff; --border-strong: #fff;
+  --text: #fff; --muted: #fff; --muted-2: #fff;
+  --nav: #000; --nav-hover: #222;
+  --primary: #ffe600; --primary-dark: #fff176; --primary-soft: #1c1a00;
+  --danger: #ff8a8a; --warning: #ffd24d; --success: #7dffb3;
+  --danger-soft: #000; --warning-soft: #000; --success-soft: #000;
+}
+:root[data-contrast="true"] .card,
+:root[data-contrast="true"] .item.ativo { border-width: 2px; }
+:root[data-contrast="true"] .item { color: #fff; }
+
+/* Partes do seu CSS que têm #fff fixo: passam a usar --surface nos
+   modos escuro e alto contraste. */
+:root:is([data-dark="true"], [data-contrast="true"]) :is(
+  .header, .avatar-area, .btn-secondary, .map-toolbar, .map-search input,
+  .field-select, .map-legend, .form-group select, .input-icon input,
+  .form-group textarea, .route-input input, .route-option, .critical-card,
+  .weather-icon, .logo
+) { background: var(--surface); color: var(--text); }
+:root:is([data-dark="true"], [data-contrast="true"]) .weather-card { background: var(--surface); }
+:root:is([data-dark="true"], [data-contrast="true"]) .timeline-dot { border-color: var(--surface); }
+:root:is([data-dark="true"], [data-contrast="true"]) .btn-primary { color: #04202a; }
+:root[data-contrast="true"] .btn-primary { color: #000; }
+:root[data-dark="true"] .chip-danger { color: #ffb4ba; }
+:root[data-dark="true"] .chip-warning { color: #ffd199; }
+:root[data-dark="true"] .chip-success { color: #9be5c4; }
+:root[data-dark="true"] .chip-info { color: #a9d0f5; background: #12293f; }
+:root[data-dark="true"] .chip-neutral { color: #c4d2de; background: #1d3144; }
+
+/* Navegação por teclado: foco sempre visível, mais forte quando ativada */
+:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+:root[data-keyboard="true"] :focus-visible {
+  outline-width: 4px; outline-offset: 3px; box-shadow: 0 0 0 7px var(--primary-soft);
+}
+/* Leitor de tela: sem animações */
+:root[data-reader="true"] *, :root[data-reader="true"] *::before, :root[data-reader="true"] *::after {
+  transition: none !important; animation: none !important; scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; left: -999px; top: 8px; z-index: 5000; padding: 10px 14px; border-radius: 10px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; }
+.skip-link:focus { left: 8px; }
+
+/* ---------- 2. Página de Configurações ---------- */
+.cfg-wrap { max-width: 820px; display: flex; flex-direction: column; gap: 18px; }
+.cfg-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding: 15px 0; border-top: 1px solid var(--border);
+}
+.cfg-row:first-of-type { border-top: 0; padding-top: 2px; }
+.cfg-row strong { display: block; font-size: calc(13px * var(--fs)); }
+.cfg-row span.cfg-hint { display: block; margin-top: 3px; color: var(--muted); font-size: calc(12px * var(--fs)); }
+.cfg-group { padding: 15px 0 2px; border-top: 1px solid var(--border); }
+.cfg-group:first-of-type { border-top: 0; padding-top: 2px; }
+.cfg-group legend { padding: 0; font-weight: 700; font-size: calc(13px * var(--fs)); }
+.cfg-wrap fieldset { border: 0; margin: 0; min-width: 0; padding-inline: 0; padding-bottom: 0; }
+.cfg-footer { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; color: var(--muted); font-size: calc(12px * var(--fs)); }
+
+/* Interruptor: <label class="switch"><input type="checkbox" role="switch"><i></i></label> */
+.switch { position: relative; flex: none; width: 46px; height: 26px; }
+.switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; z-index: 1; }
+.switch i { position: absolute; inset: 0; border-radius: 999px; background: var(--border-strong); transition: background .18s ease; }
+.switch i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: transform .18s ease; }
+.switch input:checked + i { background: var(--primary); }
+.switch input:checked + i::after { transform: translateX(20px); }
+:root[data-contrast="true"] .switch i { background: #555; }
+.switch input:focus-visible + i { outline: 3px solid var(--primary); outline-offset: 3px; }
+
+/* Grupo de opções (radios com aparência de botão) */
+.seg { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.seg label { position: relative; }
+.seg input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.seg span { display: block; min-height: 38px; line-height: 36px; padding: 0 16px; border: 1px solid var(--border-strong); border-radius: 10px; background: var(--surface); font-weight: 600; font-size: calc(13px * var(--fs)); transition: .18s ease; }
+.seg label:hover span { background: var(--surface-soft); }
+.seg input:checked + span { background: var(--primary-soft); border-color: var(--primary); color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+:root[data-contrast="true"] .seg input:checked + span { background: var(--primary); color: #000; }
+.seg input:focus-visible + span { outline: 3px solid var(--primary); outline-offset: 3px; }
+.seg .sz-s { font-size: calc(12px * var(--fs)); } .seg .sz-l { font-size: calc(16px * var(--fs)); }
+
+/* Campo com rótulo (select, texto, textarea) – segue o estilo de .form-group */
+.cfg-field { display: grid; gap: 7px; margin-bottom: 16px; }
+.cfg-field label { font-size: calc(12px * var(--fs)); font-weight: 700; }
+.cfg-field :is(input, select, textarea) {
+  width: 100%; min-height: 40px; padding: 0 12px; border: 1px solid var(--border-strong);
+  border-radius: 10px; background: var(--surface); color: var(--text); outline: none;
+}
+.cfg-field textarea { min-height: 120px; padding: 11px 12px; resize: vertical; line-height: 1.5; }
+.cfg-field :is(input, select, textarea):focus { border-color: #79b6c5; box-shadow: 0 0 0 3px rgba(18, 107, 131, .12); }
+
+/* ---------- 3. Página de Ajuda ---------- */
+.help-wrap { max-width: 980px; display: flex; flex-direction: column; gap: 18px; }
+.help-search { position: relative; }
+.help-search i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--muted-2); pointer-events: none; }
+.help-search input {
+  width: 100%; height: 48px; padding: 0 16px 0 42px; border: 1px solid var(--border-strong); border-radius: 12px;
+  background: var(--surface); color: var(--text); outline: none; font-size: calc(14px * var(--fs)); box-shadow: var(--shadow-sm);
+}
+.help-search input:focus { border-color: #79b6c5; box-shadow: 0 0 0 3px rgba(18, 107, 131, .12); }
+
+/* Accordion */
+.faq-item { border-top: 1px solid var(--border); }
+.faq-item:first-child { border-top: 0; }
+.faq-item h3 { margin: 0; font-size: inherit; }
+.faq-q {
+  all: unset; box-sizing: border-box; cursor: pointer; width: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 15px 0; font-weight: 700; font-size: calc(13px * var(--fs));
+}
+.faq-q::after { content: "+"; font-size: 22px; line-height: 1; color: var(--primary); transition: transform .2s ease; }
+.faq-q[aria-expanded="true"]::after { transform: rotate(45deg); }
+.faq-q:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+.faq-a { padding: 0 0 16px; max-width: 70ch; color: var(--muted); font-size: calc(13px * var(--fs)); line-height: 1.6; }
+.faq-a a { color: var(--primary); font-weight: 600; }
+.faq-empty { padding: 14px 0 4px; color: var(--muted); }
+
+/* Contato */
+.help-contact { display: grid; gap: 18px; }
+.help-channels { display: flex; flex-direction: column; gap: 12px; }
+.channel {
+  display: flex; align-items: center; gap: 13px; padding: 15px; text-decoration: none; color: var(--text);
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); transition: .18s ease;
+}
+a.channel:hover { border-color: var(--primary); background: var(--primary-soft); }
+.channel .card-header-icon { flex: none; color: var(--primary); }
+.channel strong { display: block; font-size: calc(13px * var(--fs)); }
+.channel span { display: block; margin-top: 2px; color: var(--muted); font-size: calc(12px * var(--fs)); }
+.channel.urgent { border-left: 4px solid var(--danger); }
+.channel.urgent .card-header-icon { color: var(--danger); }
+.form-status { margin: 12px 0 0; color: var(--muted); font-size: calc(12px * var(--fs)); }
+@media (min-width: 900px) { .help-contact { grid-template-columns: minmax(0, 1.4fr) minmax(0, .8fr); align-items: start; } }
+
+/* Aviso: o seu .toast tem ícone + texto; o JS escreve em #toast-msg */
+@media (max-width: 640px) { .cfg-row { align-items: flex-start; } .seg span { padding: 0 13px; } }
