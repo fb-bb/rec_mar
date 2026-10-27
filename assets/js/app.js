@@ -70,7 +70,7 @@ const RecifeApp = (() => {
 
   function locateUser(map, onFound) {
     if (!navigator.geolocation) {
-      toast('Seu navegador não oferece geolocalização.');
+      toast('Este navegador não oferece suporte à geolocalização.');
       return;
     }
     navigator.geolocation.getCurrentPosition(
@@ -79,11 +79,11 @@ const RecifeApp = (() => {
         map.setView(latlng, 16);
         L.marker(latlng, { icon: createMarkerIcon('low', true) })
           .addTo(map)
-          .bindPopup('<div class="map-popup"><h4>Sua localização</h4><p>Posição aproximada fornecida pelo navegador.</p></div>')
+          .bindPopup('<div class="map-popup"><h4>Localização atual</h4><p>Posição aproximada fornecida pelo navegador.</p></div>')
           .openPopup();
         onFound?.(latlng);
       },
-      () => toast('Não foi possível acessar sua localização. Verifique a permissão do navegador.'),
+      () => toast('Não foi possível acessar sua localização. Verifique as permissões do navegador.'),
       { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 }
     );
   }

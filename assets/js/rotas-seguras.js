@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="route-popup">
       <h4>Ponto de alagamento</h4>
       <p>Risco alto</p>
-      <p>Evite a área durante chuvas intensas.</p>
+      <p>Recomenda-se evitar a área durante chuvas intensas.</p>
     </div>
   `);
 

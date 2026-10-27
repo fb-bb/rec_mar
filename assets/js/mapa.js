@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!document.fullscreenElement) await target.requestFullscreen();
       else await document.exitFullscreen();
       setTimeout(() => map.invalidateSize(), 200);
-    } catch { RecifeApp.toast('O modo tela cheia não está disponível neste navegador.'); }
+    } catch { RecifeApp.toast('A expansão do mapa não está disponível neste navegador.'); }
   });
 
   const searchForm = document.getElementById('map-search-form');
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   searchForm?.addEventListener('submit', async e => {
     e.preventDefault();
     const raw = searchInput.value.trim();
-    if (raw.length < 3) return RecifeApp.toast('Digite ao menos 3 caracteres para buscar.');
+    if (raw.length < 3) return RecifeApp.toast('Informe pelo menos 3 caracteres para realizar a pesquisa.');
 
     const query = /recife/i.test(raw) ? raw : `${raw}, Recife, Pernambuco, Brasil`;
     const cache = readCache();
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch(url, { headers: { 'Accept-Language': 'pt-BR' } });
         if (!response.ok) throw new Error('Falha na busca');
         const data = await response.json();
-        if (!data.length) return RecifeApp.toast('Endereço não encontrado. Tente informar bairro e rua.');
+        if (!data.length) return RecifeApp.toast('Endereço não encontrado. Informe o bairro e a rua para refinar a pesquisa.');
         result = { lat: data[0].lat, lon: data[0].lon, display_name: data[0].display_name, savedAt: Date.now() };
         cache[cacheKey] = result;
         writeCache(cache);
@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
         iconSize: [32,32], iconAnchor: [16,28], popupAnchor: [0,-30]
       }) : undefined })
         .addTo(map)
-        .bindPopup(`<div class="map-popup"><h4>Resultado da busca</h4><p>${result.display_name}</p></div>`)
+        .bindPopup(`<div class="map-popup"><h4>Resultado da pesquisa</h4><p>${result.display_name}</p></div>`)
         .openPopup();
     } catch (err) {
       console.error(err);
-      RecifeApp.toast('A busca de endereço está indisponível no momento. O mapa continua funcionando normalmente.');
+      RecifeApp.toast('A pesquisa de endereço está indisponível no momento. O mapa permanece disponível para consulta.');
     }
   });
 

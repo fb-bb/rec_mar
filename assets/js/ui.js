@@ -58,13 +58,13 @@
           return;
         }
         state[k] = v; save(state); apply(state);
-        notify(k === "lang" ? "Idioma salvo." : "Preferência salva.");
+        notify(k === "lang" ? "Idioma atualizado." : "Preferência atualizada.");
       });
     });
     var reset = document.getElementById("reset");
     if (reset) reset.addEventListener("click", function () {
       state = Object.assign({}, DEFAULTS); save(state); apply(state);
-      controls.forEach(paint); notify("Configurações restauradas.");
+      controls.forEach(paint); notify("Configurações restauradas com os valores recomendados.");
     });
 
     /* ---------- Ajuda: accordion ---------- */
@@ -103,7 +103,7 @@
         form.reset(); status.textContent = "";
         notify("Mensagem enviada. Respondemos em até 2 dias úteis.");
       }).catch(function () {
-        status.textContent = "Não foi possível enviar agora. Tente de novo ou fale pelo WhatsApp.";
+        status.textContent = "Não foi possível enviar a mensagem. Tente novamente ou utilize o WhatsApp.";
       }).finally(function () { btn.disabled = false; });
     });
   });
