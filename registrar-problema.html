@@ -49,7 +49,7 @@
           <span class="avatar-circle">FL</span>
 
           <span class="avatar-copy">
-            <strong>F. Lins de Araujo</strong>
+            <strong>F. Lins de Araújo</strong>
             <span>Área do usuário</span>
           </span>
 
@@ -122,8 +122,7 @@
             <h1>Registrar nova ocorrência</h1>
 
             <p>
-              Envie fotos e detalhes de pontos de alagamento ou problemas
-              identificados para ajudar a comunidade.
+              Encaminhe fotografias e informações sobre pontos de alagamento ou outras ocorrências identificadas para contribuir com a segurança da comunidade.
             </p>
           </div>
         </div>
@@ -133,11 +132,10 @@
 
           <section class="card register-card">
             <div class="register-header">
-              <h2>Registrar Nova Ocorrência</h2>
+              <h2>Registrar nova ocorrência</h2>
 
               <p>
-                Ajude a comunidade informando problemas encontrados durante
-                períodos de chuva.
+                Contribua com informações sobre ocorrências identificadas durante períodos de chuva.
               </p>
             </div>
 
@@ -231,21 +229,21 @@
                   id="descricao"
                   name="descricao"
                   rows="5"
-                  placeholder="Descreva o que está acontecendo, condições da via ou outros detalhes importantes."
+                  placeholder="Descreva a situação observada, as condições da via e outras informações relevantes."
                 ></textarea>
               </div>
 
               <!-- FOTO -->
 
               <div class="form-group">
-                <label> Anexar foto da situação </label>
+                <label> Anexar fotografia da ocorrência </label>
 
                 <label class="upload-area" for="foto">
                   <i class="fa-solid fa-camera"></i>
 
-                  <strong> Tirar foto ou carregar arquivo </strong>
+                  <strong> Selecionar ou capturar fotografia </strong>
 
-                  <span> PNG, JPG ou JPEG até 10MB </span>
+                  <span> PNG, JPG ou JPEG · limite de 10 MB </span>
 
                   <input
                     type="file"
@@ -264,7 +262,7 @@
               >
                 <i class="fa-solid fa-plus"></i>
 
-                Enviar registro de ocorrência
+                Enviar ocorrência para análise
               </button>
             </form>
           </section>
@@ -278,13 +276,11 @@
               <div class="register-side-title">
                 <i class="fa-regular fa-circle-question"></i>
 
-                <h3>Como seu registro ajuda?</h3>
+                <h3>Como a ocorrência contribui?</h3>
               </div>
 
               <p>
-                Seu relato é enviado em tempo real para o painel da Defesa Civil
-                do Recife e ajuda a alertar outros moradores que utilizam o
-                recurso de rotas seguras do aplicativo.
+                A ocorrência é encaminhada em tempo real ao painel da Defesa Civil do Recife e contribui para informar outros moradores que utilizam o recurso de rotas seguras.
               </p>
             </section>
 
@@ -293,10 +289,10 @@
             <section class="card recent-card">
               <div class="card-header">
                 <div>
-                  <h3>Seus registros recentes</h3>
+                  <h3>Ocorrências recentes</h3>
                 </div>
 
-                <a href="dashboard.html" class="btn btn-ghost"> Ver todos </a>
+                <a href="dashboard.html" class="btn btn-ghost"> Consultar todos </a>
               </div>
 
               <div class="recent-list">
@@ -304,7 +300,7 @@
                   <div class="recent-status danger"></div>
 
                   <div class="recent-info">
-                    <strong> Alagamento crítico </strong>
+                    <strong> Alagamento em nível crítico </strong>
 
                     <span> Boa Viagem · Há 2 horas </span>
                   </div>
@@ -345,7 +341,7 @@
       form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        alert("Ocorrência registrada com sucesso!");
+        alert("Ocorrência enviada para análise com sucesso.");
       });
     </script>
   </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mapa de Alagamentos - Recife Contra a Maré</title>
+    <title>Mapa de alagamentos - Recife Contra a Maré</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
@@ -714,6 +714,40 @@
                 flex-wrap: wrap;
             }
         }
+    
+
+        /* Refinamento visual institucional */
+        body {
+            background: #f1f4f6;
+            color: #182b36;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+        .header, .sidebar, .main, .card, .bottom-legend {
+            border-color: #dce4e9;
+            border-radius: 8px;
+            box-shadow: 0 5px 14px rgba(18, 43, 54, .045);
+        }
+        .header { background: #fff; border-color: transparent; border-bottom-color: #dce4e9; }
+        .logo { background: #e7f2f4; border-color: #0d6575; color: #0d6575; }
+        .sidebar { background: #102b3a; border-color: #102b3a; }
+        .menu a { color: #c6d3da; border-radius: 6px; }
+        .menu a:hover, .menu a.active { background: #193f51; color: #fff; }
+        .title-area { border-bottom-color: #dce4e9; }
+        .fullscreen, .filter, .search, .filter-button, .map-control, .legend, .action-button {
+            border-color: #bfccd4; border-radius: 7px;
+        }
+        .fullscreen, .filter, .search, .map-control, .legend, .action-button { background: #fff; color: #182b36; }
+        .filter-button { background: #0d6575; color: #fff; border-color: #0d6575; }
+        .map-container { background-color: #e7eef1; border-color: #bfccd4; }
+        .marker { box-shadow: 0 2px 8px rgba(18, 43, 54, .22); }
+        .risk { background: #ad343d; }
+        .risk.high { background: #b46f1d; }
+        .risk.medium { background: #c8a15b; }
+        .risk.low { background: #2d7058; }
+        .risk-label { border-radius: 6px; background: #fbeaec; color: #8f2931; }
+        .report-icon, .bottom-circle { background: #dfe9ed; }
+        .bottom-circle.dark { background: #ad343d; }
+        .bottom-circle.light { background: #2d7058; }
     </style>
 </head>
 
@@ -731,7 +765,7 @@
 
             <div class="logo-text">
                 <h1>RECIFE CONTRA A MARÉ</h1>
-                <p>Monitoramento de Chuvas e Alagamentos</p>
+                <p>Monitoramento de chuvas e alagamentos</p>
             </div>
 
         </div>
@@ -744,7 +778,7 @@
                 <i class="fa-solid fa-user"></i>
             </div>
 
-            <span class="user-name">João Silva</span>
+            <span class="user-name">F. Lins de Araújo</span>
 
             <i class="fa-solid fa-chevron-down"></i>
 
@@ -780,12 +814,12 @@
 
                 <a href="#">
                     <i class="fa-solid fa-circle-plus"></i>
-                    <span>Registrar Problema</span>
+                    <span>Registrar ocorrência</span>
                 </a>
 
                 <a href="#">
                     <i class="fa-solid fa-road"></i>
-                    <span>Rotas Seguras</span>
+                    <span>Rotas seguras</span>
                 </a>
 
                 <a href="#">
@@ -823,7 +857,7 @@
 
                 <h2>
                     <i class="fa-solid fa-location-dot"></i>
-                    Mapa de Alagamentos
+                    Mapa de alagamentos
                 </h2>
 
                 <button class="fullscreen">
@@ -848,12 +882,12 @@
                 </div>
 
                 <div class="filter">
-                    <span>Nível de Risco</span>
+                    <span>Nível de risco</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
 
                 <div class="filter">
-                    <span>Tipo de Alagamento</span>
+                    <span>Tipo de alagamento</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
 
@@ -863,7 +897,7 @@
 
                     <input
                         type="text"
-                        placeholder="Buscar endereço ou lugar"
+                        placeholder="Pesquisar endereço ou local"
                     >
 
                 </div>
@@ -931,7 +965,7 @@
 
                     <div class="legend">
 
-                        <h3>Nível de Risco</h3>
+                        <h3>Nível de risco</h3>
 
                         <div class="legend-item">
                             <div class="risk"></div>
@@ -969,7 +1003,7 @@
 
                         <div class="card-title">
 
-                            <h3>Ponto Selecionado</h3>
+                            <h3>Ocorrência selecionada</h3>
 
                             <i class="fa-solid fa-xmark"></i>
 
@@ -1028,7 +1062,7 @@
 
                         <div class="card-title">
 
-                            <h3>Relatos Recentes</h3>
+                            <h3>Registros recentes</h3>
 
                             <span style="font-size: 12px;">
                                 Ver todos
@@ -1045,7 +1079,7 @@
 
                                 <strong>Rua da Aurora, 123</strong>
 
-                                <p>Água na altura do meio fio.</p>
+                                <p>Nível da água próximo ao meio-fio.</p>
 
                             </div>
 
@@ -1064,7 +1098,7 @@
 
                                 <strong>Av. Norte Miguel Arraes</strong>
 
-                                <p>Trânsito lento devido ao alagamento.</p>
+                                <p>Trânsito lento em razão do alagamento.</p>
 
                             </div>
 
@@ -1083,7 +1117,7 @@
 
                                 <strong>Rua dos Coelhos</strong>
 
-                                <p>Bueiro entupido, água acumulando.</p>
+                                <p>Bueiro obstruído e acúmulo de água.</p>
 
                             </div>
 
@@ -1101,20 +1135,20 @@
                     <div class="card">
 
                         <div class="card-title">
-                            <h3>Ações Rápidas</h3>
+                            <h3>Ações disponíveis</h3>
                         </div>
 
                         <button class="action-button">
 
                             <i class="fa-solid fa-shield-halved"></i>
-                            &nbsp; Como me proteger
+                            &nbsp; Consultar orientações de segurança
 
                         </button>
 
                         <button class="action-button">
 
                             <i class="fa-solid fa-circle-plus"></i>
-                            &nbsp; Registrar problema aqui
+                            &nbsp; Registrar ocorrência neste local
 
                         </button>
 
@@ -1129,7 +1163,7 @@
 
             <div class="bottom-legend">
 
-                <h3>Legenda do Mapa</h3>
+                <h3>Legenda do mapa</h3>
 
                 <div class="bottom-item">
                     <div class="bottom-circle light"></div>

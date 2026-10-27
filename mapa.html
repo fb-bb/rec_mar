@@ -38,7 +38,7 @@
           style="text-decoration: none"
           ><span class="avatar-circle">FL</span
           ><span class="avatar-copy"
-            ><strong>F. Lins de Araujo</strong
+            ><strong>F. Lins de Araújo</strong
             ><span>Área do usuário</span></span
           ><i
             class="fa-solid fa-chevron-down"
@@ -87,15 +87,14 @@
           <div class="page-heading">
             <h1>Mapa de alagamentos</h1>
             <p>
-              Consulte ocorrências registradas em Recife, filtre por nível de
-              risco e use sua localização para visualizar pontos próximos.
+              Consulte ocorrências registradas no Recife, filtre por nível de risco e utilize sua localização para identificar pontos próximos.
             </p>
           </div>
           <div class="page-actions">
             <button class="btn btn-secondary" id="btn-localizar">
-              <i class="fa-solid fa-location-crosshairs"></i> Minha localização</button
+              <i class="fa-solid fa-location-crosshairs"></i> Localização atual</button
             ><button class="btn btn-primary" id="btn-fullscreen">
-              <i class="fa-solid fa-expand"></i> Tela cheia
+              <i class="fa-solid fa-expand"></i> Expandir mapa
             </button>
           </div>
         </div>
@@ -108,7 +107,7 @@
                 ><input
                   id="map-search-input"
                   type="search"
-                  placeholder="Buscar rua, bairro ou endereço"
+                  placeholder="Pesquisar rua, bairro ou endereço"
                   autocomplete="off"
                   aria-label="Buscar endereço"
                 />
@@ -118,13 +117,13 @@
                 id="risk-filter"
                 aria-label="Filtrar por risco"
               >
-                <option value="all">Todos os riscos</option>
+                <option value="all">Todos os níveis</option>
                 <option value="danger">Alto / muito alto</option>
                 <option value="moderate">Moderado</option>
                 <option value="low">Baixo</option>
               </select>
               <a href="registrar-problema.html" class="btn btn-primary"
-                ><i class="fa-solid fa-plus"></i> Registrar</a
+                ><i class="fa-solid fa-plus"></i> Registrar ocorrência</a
               >
             </div>
             <div id="map" aria-label="Mapa interativo de Recife"></div>
@@ -136,8 +135,7 @@
               ><span class="legend-item"
                 ><span class="legend-dot"></span> Baixo</span
               ><span class="legend-item"
-                ><i class="fa-solid fa-circle-info"></i> Clique em um ponto para
-                detalhes</span
+                ><i class="fa-solid fa-circle-info"></i> Selecione um ponto para consultar os detalhes</span
               >
             </div>
           </section>
@@ -146,7 +144,7 @@
             <section class="card map-detail-card">
               <div class="card-header">
                 <div>
-                  <h3>Ponto selecionado</h3>
+                  <h3>Ocorrência selecionada</h3>
                   <p>Detalhes da ocorrência</p>
                 </div>
                 <span class="card-header-icon"
@@ -186,14 +184,14 @@
                 href="registrar-problema.html"
                 class="btn btn-secondary btn-block"
                 style="margin-top: 14px"
-                ><i class="fa-regular fa-flag"></i> Adicionar relato</a
+                ><i class="fa-regular fa-flag"></i> Registrar informação</a
               >
             </section>
             <section class="card map-detail-card">
               <div class="card-header">
                 <div>
-                  <h3>Relatos recentes</h3>
-                  <p>Informações enviadas por usuários</p>
+                  <h3>Registros recentes</h3>
+                  <p>Informações encaminhadas pela comunidade</p>
                 </div>
               </div>
               <div class="report-row">
@@ -202,14 +200,14 @@
                 ></span>
                 <div class="report-copy">
                   <strong>Rua da Aurora</strong>
-                  <p>Água próxima à altura do meio-fio · há 8 min</p>
+                  <p>Nível da água próximo ao meio-fio · há 8 minutos</p>
                 </div>
               </div>
               <div class="report-row">
                 <span class="report-icon"><i class="fa-solid fa-car"></i></span>
                 <div class="report-copy">
                   <strong>Av. Norte</strong>
-                  <p>Trânsito lento e faixa parcialmente alagada · há 12 min</p>
+                  <p>Trânsito lento e faixa parcialmente alagada · há 12 minutos</p>
                 </div>
               </div>
               <div class="report-row">
@@ -218,7 +216,7 @@
                 ></span>
                 <div class="report-copy">
                   <strong>Rua dos Coelhos</strong>
-                  <p>Acúmulo de água próximo a bueiro · há 18 min</p>
+                  <p>Acúmulo de água próximo a bueiro · há 18 minutos</p>
                 </div>
               </div>
             </section>
