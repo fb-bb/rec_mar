@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações · Recife Contra a Maré</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- Sem defer: aplica as preferências (modo escuro, fonte...) antes da página aparecer.
+       Coloque esta linha no <head> de TODAS as páginas do site. -->
+  <script src="./assets/js/ui.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="header">
+  <div class="logo-area">
+    <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+    <img src="img/rec_mar.webp" alt="Recife Contra a Maré" class="logo">
+    <div class="texto-logo"><h2>RECIFE CONTRA A MARÉ</h2><p>Monitoramento de chuvas e alagamentos</p></div>
+  </div>
+  <div class="usuario">
+    <button class="icon-button" aria-label="Notificações"><i class="fa-regular fa-bell"></i></button>
+    <a class="avatar-area" href="dashboard.html" style="text-decoration:none">
+      <span class="avatar-circle">FL</span>
+      <span class="avatar-copy"><strong>F. Lins de Araújo</strong><span>Área do usuário</span></span>
+      <i class="fa-solid fa-chevron-down" style="font-size:10px;color:#8b97a9"></i>
+    </a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <div>
+      <div class="sidebar-section-label">Navegação</div>
+      <nav>
+        <a href="index.html" class="item"><i class="fa-solid fa-house"></i><span>Início</span></a>
+        <a href="mapa.html" class="item"><i class="fa-regular fa-map"></i><span>Mapa</span></a>
+        <a href="alertas.html" class="item"><i class="fa-solid fa-triangle-exclamation"></i><span>Alertas</span></a>
+        <a href="registrar-problema.html" class="item"><i class="fa-regular fa-square-plus"></i><span>Registrar problema</span></a>
+        <a href="rotas-seguras.html" class="item"><i class="fa-solid fa-route"></i><span>Rotas seguras</span></a>
+        <a href="dashboard.html" class="item"><i class="fa-solid fa-chart-line"></i><span>Meu painel</span></a>
+      </nav>
+    </div>
+    <div class="rodape">
+        <a href="ajuda.html" class="item"><i class="fa-regular fa-circle-question"></i><span>Ajuda</span></a>
+        <a href="configuracoes.html" class="item ativo" aria-current="page"><i class="fa-solid fa-gear"></i><span>Configurações</span></a>
+    </div>
+  </aside>
+
+  <main class="conteudo" id="conteudo">
+    <div class="page-header"><div class="page-heading"><h1>Configurações</h1><p>Gerencie recursos de acessibilidade, notificações e aparência.</p></div></div>
+    <div class="cfg-wrap">
+      <!-- ACESSIBILIDADE -->
+      <section class="card card-pad" aria-labelledby="h-acc">
+        <div class="card-header"><div><h2 id="h-acc">Acessibilidade</h2><p>Configure a leitura e a navegação conforme suas necessidades.</p></div><span class="card-header-icon"><i class="fa-solid fa-universal-access"></i></span></div>
+        <fieldset class="cfg-group"><legend>Tamanho da fonte</legend><div class="seg"><label><input type="radio" name="font" value="small" data-setting="font"><span class="sz-s">Pequeno</span></label><label><input type="radio" name="font" value="medium" data-setting="font"><span class="">Médio</span></label><label><input type="radio" name="font" value="large" data-setting="font"><span class="sz-l">Grande</span></label></div></fieldset>
+        <div class="cfg-row"><div><strong id="l-dark">Modo escuro</strong><span class="cfg-hint">Utiliza uma paleta escura para reduzir o desconforto visual em ambientes com pouca iluminação.</span></div>
+          <label class="switch"><input type="checkbox" role="switch" data-setting="dark" aria-labelledby="l-dark"><i></i></label></div>
+        <div class="cfg-row"><div><strong id="l-contrast">Alto contraste</strong><span class="cfg-hint">Utiliza alto contraste para facilitar a leitura de alertas e informações.</span></div>
+          <label class="switch"><input type="checkbox" role="switch" data-setting="contrast" aria-labelledby="l-contrast"><i></i></label></div>
+        <div class="cfg-row"><div><strong id="l-keyboard">Navegação por teclado</strong><span class="cfg-hint">Evidencia o item em foco durante a navegação pelo teclado.</span></div>
+          <label class="switch"><input type="checkbox" role="switch" data-setting="keyboard" aria-labelledby="l-keyboard"><i></i></label></div>
+        <div class="cfg-row"><div><strong id="l-reader">Otimizar para leitor de tela</strong><span class="cfg-hint">Reduz animações e prioriza informações compatíveis com leitores de tela.</span></div>
+          <label class="switch"><input type="checkbox" role="switch" data-setting="reader" aria-labelledby="l-reader"><i></i></label></div>
+      </section>
+
+      <!-- NOTIFICAÇÕES -->
+      <section class="card card-pad" aria-labelledby="h-not">
+        <div class="card-header"><div><h2 id="h-not">Notificações</h2><p>Defina como deseja receber notificações sobre alagamentos na sua área.</p></div><span class="card-header-icon"><i class="fa-solid fa-bell"></i></span></div>
+        <div class="cfg-row"><div><strong id="l-email">Notificações por e-mail</strong><span class="cfg-hint">Envia alertas e resumos para o e-mail cadastrado.</span></div>
+          <label class="switch"><input type="checkbox" role="switch" data-setting="email" aria-labelledby="l-email"><i></i></label></div>
+        <div class="cfg-row"><div><strong id="l-push">Notificações no navegador</strong><span class="cfg-hint">Exibe notificações na tela quando o site estiver em segundo plano.</span></div>
+          <label class="switch"><input type="checkbox" role="switch" data-setting="push" aria-labelledby="l-push"><i></i></label></div>
+        <fieldset class="cfg-group"><legend>Frequência dos alertas</legend><div class="seg"><label><input type="radio" name="frequency" value="immediate" data-setting="frequency"><span class="">Imediato</span></label><label><input type="radio" name="frequency" value="daily" data-setting="frequency"><span class="">Resumo diário</span></label><label><input type="radio" name="frequency" value="weekly" data-setting="frequency"><span class="">Semanal</span></label></div></fieldset>
+      </section>
+
+      <!-- PREFERÊNCIAS GERAIS -->
+      <section class="card card-pad" aria-labelledby="h-ger">
+        <div class="card-header"><div><h2 id="h-ger">Preferências gerais</h2><p>Defina o idioma e o tema visual da interface.</p></div><span class="card-header-icon"><i class="fa-solid fa-sliders"></i></span></div>
+        <div class="cfg-field"><label for="lang">Idioma</label>
+          <select id="lang" data-setting="lang"><option value="pt-BR">Português (Brasil)</option><option value="en">English</option><option value="es">Español</option></select></div>
+        <fieldset class="cfg-group"><legend>Tema visual</legend><div class="seg"><label><input type="radio" name="accent" value="azul" data-setting="accent"><span class="">Maré (recomendado)</span></label><label><input type="radio" name="accent" value="verde" data-setting="accent"><span class="">Manguezal</span></label><label><input type="radio" name="accent" value="coral" data-setting="accent"><span class="">Coral</span></label></div></fieldset>
+      </section>
+
+      <div class="cfg-footer">
+        <button type="button" class="btn btn-secondary" id="reset"><i class="fa-solid fa-rotate-left"></i>Restaurar configurações</button>
+        <span>As alterações são salvas automaticamente neste dispositivo.</span>
+      </div>
+    </div>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"><i class="fa-solid fa-circle-check"></i><span id="toast-msg"></span></div>
+<script src="./assets/js/app.js"></script>
+</body>
+</html>
