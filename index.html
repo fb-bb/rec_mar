@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recife Contra a Maré</title>
+    <title>Chuva, riscos e alertas no Recife | Recife Contra a Maré</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,18 +37,22 @@
         </div>
       </div>
       <div class="usuario">
-        <button class="icon-button" aria-label="Notificações">
+        <a
+          class="icon-button"
+          href="alertas.html"
+          aria-label="Consultar alertas"
+        >
           <i class="fa-regular fa-bell"></i>
-        </button>
+        </a>
         <a
           class="avatar-area"
           href="dashboard.html"
           style="text-decoration: none"
         >
-          <span class="avatar-circle">FL</span>
+          <span class="avatar-circle">V</span>
           <span class="avatar-copy"
-            ><strong>F. Lins de Araújo</strong
-            ><span>Área do usuário</span></span
+            ><strong>Visitante</strong
+            ><span>Acesso sem autenticação</span></span
           >
           <i
             class="fa-solid fa-chevron-down"
@@ -94,82 +98,225 @@
         </div>
       </aside>
 
-      <main class="conteudo">
+      <main class="conteudo home-page">
         <div class="page-header">
           <div class="page-heading">
-            <h1>Situação em Recife</h1>
+            <h1>Chuva e segurança no Recife</h1>
             <p>
-              Acompanhe pontos de alagamento, alertas recentes e informações
-              úteis para deslocamentos com mais segurança.
+              Consulte fontes oficiais, acompanhe relatos ilustrativos da
+              comunidade e saiba onde buscar orientação antes de sair.
             </p>
           </div>
           <div class="page-actions">
             <a href="mapa.html" class="btn btn-secondary"
-              ><i class="fa-regular fa-map"></i> Abrir mapa</a
+              ><i class="fa-regular fa-map"></i> Ver mapa</a
             >
             <a href="registrar-problema.html" class="btn btn-primary"
-              ><i class="fa-solid fa-plus"></i> Registrar ocorrência</a
+              ><i class="fa-solid fa-plus"></i> Fazer relato (demo)</a
             >
           </div>
         </div>
+        <div class="demo-notice" role="note">
+          <strong>Protótipo demonstrativo.</strong> Os marcadores, alertas e
+          números abaixo não são boletins oficiais nem dados em tempo real. Para
+          decisões durante uma emergência, consulte os canais da Prefeitura e da
+          Defesa Civil.
+        </div>
+
+        <section class="home-hero" aria-labelledby="home-hero-title">
+          <div class="home-hero-copy">
+            <span class="home-eyebrow"
+              ><i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              RECIFE, PERNAMBUCO</span
+            >
+            <h2 id="home-hero-title">
+              Informação confiável começa na fonte certa.
+            </h2>
+            <p>
+              Veja a previsão e o monitoramento oficiais, confira orientações
+              para dias de chuva e use o mapa comunitário como demonstração.
+            </p>
+            <div class="home-hero-actions">
+              <a
+                class="btn btn-light"
+                href="https://acaoinverno.recife.pe.gov.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Ação Inverno Recife
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i
+              ></a>
+              <a class="btn btn-outline-light" href="mapa.html"
+                ><i class="fa-regular fa-map" aria-hidden="true"></i> Mapa
+                demonstrativo</a
+              >
+            </div>
+            <p class="home-hero-footnote">
+              <i class="fa-solid fa-circle-info" aria-hidden="true"></i> O
+              estágio oficial da cidade é diferente do nível de risco ilustrado
+              em um ponto do mapa.
+            </p>
+          </div>
+          <div class="home-hero-sources" aria-label="Acesso às fontes oficiais">
+            <div class="home-source-heading">
+              <span>ACESSO RÁPIDO</span
+              ><span class="official-badge"
+                ><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                Fontes oficiais</span
+              >
+            </div>
+            <a
+              class="home-source-link"
+              href="https://previsao.inmet.gov.br/2611606"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="home-source-icon"
+                ><i
+                  class="fa-solid fa-cloud-sun-rain"
+                  aria-hidden="true"
+                ></i></span
+              ><span
+                ><strong>Previsão do tempo</strong
+                ><small>INMET · Recife</small></span
+              ><i
+                class="fa-solid fa-arrow-up-right-from-square home-source-arrow"
+                aria-hidden="true"
+              ></i
+            ></a>
+            <a
+              class="home-source-link"
+              href="https://www.apac.pe.gov.br/monitoramento"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="home-source-icon"
+                ><i
+                  class="fa-solid fa-cloud-showers-heavy"
+                  aria-hidden="true"
+                ></i></span
+              ><span
+                ><strong>Chuva e monitoramento</strong
+                ><small>APAC · Pernambuco</small></span
+              ><i
+                class="fa-solid fa-arrow-up-right-from-square home-source-arrow"
+                aria-hidden="true"
+              ></i
+            ></a>
+            <a
+              class="home-source-link"
+              href="https://conecta.recife.pe.gov.br/acesso/minhaspreferencias?go=defesa_civil"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="home-source-icon"
+                ><i class="fa-solid fa-bell" aria-hidden="true"></i></span
+              ><span
+                ><strong>Receber alertas de chuva</strong
+                ><small>Conecta Recife</small></span
+              ><i
+                class="fa-solid fa-arrow-up-right-from-square home-source-arrow"
+                aria-hidden="true"
+              ></i
+            ></a>
+          </div>
+        </section>
 
         <section class="stat-grid" style="margin-bottom: 18px">
           <article class="card stat-card is-danger">
             <div class="stat-top">
               <div class="stat-icon"><i class="fa-solid fa-water"></i></div>
-              <span class="chip chip-danger">Atenção</span>
+              <span class="chip chip-danger">Exemplo</span>
             </div>
             <div class="stat-value">3</div>
             <div class="stat-label">Pontos com risco alto</div>
-            <div class="stat-note">Monitorados nas últimas 2 horas</div>
+            <div class="stat-note">Pontos ilustrativos no mapa</div>
           </article>
           <article class="card stat-card is-warning">
             <div class="stat-top">
               <div class="stat-icon">
                 <i class="fa-solid fa-cloud-rain"></i>
               </div>
-              <span class="chip chip-warning">Moderado</span>
+              <span class="chip chip-warning">Exemplo</span>
             </div>
-            <div class="stat-value">12</div>
-            <div class="stat-label">Alertas ativos</div>
-            <div class="stat-note">Em diferentes áreas da cidade</div>
+            <div class="stat-value">4</div>
+            <div class="stat-label">Exemplos na lista completa</div>
+            <div class="stat-note">Não confirmados oficialmente</div>
           </article>
-          <article class="card stat-card is-success">
+          <article class="card stat-card">
             <div class="stat-top">
-              <div class="stat-icon"><i class="fa-solid fa-check"></i></div>
-              <span class="chip chip-success">Hoje</span>
+              <div class="stat-icon">
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+              <span class="chip chip-neutral">Sem integração</span>
             </div>
-            <div class="stat-value">18</div>
-            <div class="stat-label">Ocorrências verificadas</div>
-            <div class="stat-note">Relatos atualizados pela comunidade</div>
+            <div class="stat-value stat-value-text">—</div>
+            <div class="stat-label">Alertas oficiais recebidos</div>
+            <div class="stat-note">Indisponível neste protótipo</div>
           </article>
           <article class="card stat-card">
             <div class="stat-top">
               <div class="stat-icon"><i class="fa-solid fa-route"></i></div>
-              <span class="chip chip-info">Rotas</span>
+              <span class="chip chip-info">Sem dados</span>
             </div>
-            <div class="stat-value">6</div>
-            <div class="stat-label">Áreas com desvio sugerido</div>
-            <div class="stat-note">Consulte as condições antes de iniciar o deslocamento.</div>
+            <div class="stat-value stat-value-text">—</div>
+            <div class="stat-label">Desvios em tempo real</div>
+            <div class="stat-note">Não disponíveis nesta versão</div>
           </article>
         </section>
 
         <div class="home-grid">
           <div class="home-column">
-            <section class="card weather-card">
+            <section
+              class="card weather-card official-weather"
+              aria-labelledby="weather-title"
+            >
               <div class="weather-main">
                 <div class="weather-copy">
-                  <small>Condições atuais · Recife</small><strong>24°C</strong
-                  ><span>Nublado com possibilidade de chuva</span>
+                  <small>CONDIÇÕES OFICIAIS · RECIFE</small>
+                  <strong id="weather-title">Consulte antes de sair</strong>
+                  <span
+                    >Este protótipo não recebe medições meteorológicas ao
+                    vivo.</span
+                  >
                 </div>
-                <div class="weather-icon">
+                <div class="weather-icon" aria-hidden="true">
                   <i class="fa-solid fa-cloud-sun-rain"></i>
                 </div>
               </div>
-              <div class="weather-meta">
-                <div><span>Umidade</span><strong>78%</strong></div>
-                <div><span>Vento</span><strong>15 km/h</strong></div>
-                <div><span>Chuva recente</span><strong>0,5 mm</strong></div>
+              <div class="weather-meta weather-sources">
+                <a
+                  class="weather-source-link"
+                  href="https://previsao.inmet.gov.br/2611606"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span
+                    ><i
+                      class="fa-solid fa-temperature-half"
+                      aria-hidden="true"
+                    ></i>
+                    Previsão oficial</span
+                  ><strong
+                    >INMET Recife
+                    <i
+                      class="fa-solid fa-arrow-up-right-from-square"
+                      aria-hidden="true"
+                    ></i></strong
+                ></a>
+                <a
+                  class="weather-source-link"
+                  href="https://www.apac.pe.gov.br/monitoramento"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span
+                    ><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i>
+                    Monitoramento de chuva</span
+                  ><strong
+                    >APAC Pernambuco
+                    <i
+                      class="fa-solid fa-arrow-up-right-from-square"
+                      aria-hidden="true"
+                    ></i></strong
+                ></a>
               </div>
             </section>
 
@@ -209,8 +356,15 @@
                 </div>
                 <div class="safety-item">
                   <i class="fa-solid fa-phone"></i
-                  ><strong>Defesa Civil: 199</strong>
-                  <p>Acione a Defesa Civil quando houver risco imediato.</p>
+                  ><strong
+                    ><a href="tel:08000813400"
+                      >Defesa Civil: 0800 081 3400</a
+                    ></strong
+                  >
+                  <p>
+                    Central da SEDEC/Recife. Em emergência, ligue para o
+                    atendimento oficial.
+                  </p>
                 </div>
               </div>
             </section>
@@ -220,10 +374,12 @@
             <section class="card card-pad">
               <div class="card-header">
                 <div>
-                  <h3>Alertas ativos</h3>
-                  <p>Atualizações mais recentes</p>
+                  <h3>Ocorrências de exemplo</h3>
+                  <p>Relatos ilustrativos, sem confirmação oficial</p>
                 </div>
-                <a href="alertas.html" class="btn btn-ghost">Consultar todos</a>
+                <a href="alertas.html" class="btn btn-ghost"
+                  >Ver lista completa</a
+                >
               </div>
               <div class="alert-list">
                 <div class="alert-row">
@@ -232,7 +388,7 @@
                     <div class="alert-copy">
                       <strong>Risco muito alto de alagamento</strong>
                       <p>Boa Vista · Rua da Aurora</p>
-                      <small>Atualizado há 10 min</small>
+                      <small>Exemplo · sem atualização ao vivo</small>
                     </div>
                   </div>
                   <span class="chip chip-danger">Muito alto</span>
@@ -243,7 +399,7 @@
                     <div class="alert-copy">
                       <strong>Risco alto de alagamento</strong>
                       <p>Santo Amaro · Av. Norte</p>
-                      <small>Atualizado há 25 min</small>
+                      <small>Exemplo · sem atualização ao vivo</small>
                     </div>
                   </div>
                   <span class="chip chip-danger">Alto</span>
@@ -254,7 +410,7 @@
                     <div class="alert-copy">
                       <strong>Ponto com drenagem lenta</strong>
                       <p>Imbiribeira</p>
-                      <small>Atualizado há 1 h</small>
+                      <small>Exemplo · sem atualização ao vivo</small>
                     </div>
                   </div>
                   <span class="chip chip-warning">Moderado</span>
@@ -262,33 +418,75 @@
               </div>
             </section>
 
-            <section class="card card-pad">
+            <section class="card card-pad authority-card">
               <div class="card-header">
                 <div>
-                  <h3>Minha área</h3>
-                  <p>Acesso às suas informações e registros</p>
+                  <h3>Canais oficiais do Recife</h3>
+                  <p>Informação pública e atendimento municipal</p>
                 </div>
+                <span class="card-header-icon" aria-hidden="true"
+                  ><i class="fa-solid fa-landmark"></i
+                ></span>
               </div>
-              <div class="profile-strip">
-                <div class="profile-avatar">FL</div>
-                <div>
-                  <h3>F. Lins de Araújo</h3>
-                  <p>2 locais acompanhados · 3 registros enviados</p>
-                </div>
-              </div>
-              <div
-                style="
-                  display: grid;
-                  grid-template-columns: 1fr 1fr;
-                  gap: 10px;
-                  margin-top: 16px;
-                "
-              >
-                <a href="dashboard.html" class="btn btn-primary">Abrir painel</a
-                ><a href="registrar-problema.html" class="btn btn-secondary"
-                  >Novo registro</a
+              <div class="authority-list">
+                <a
+                  class="authority-row"
+                  href="https://acaoinverno.recife.pe.gov.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
+                  <span class="authority-row-icon"
+                    ><i
+                      class="fa-solid fa-triangle-exclamation"
+                      aria-hidden="true"
+                    ></i
+                  ></span>
+                  <span
+                    ><strong>Estágio oficial da cidade</strong
+                    ><small
+                      >Consulte alertas e orientações da Prefeitura</small
+                    ></span
+                  >
+                  <i
+                    class="fa-solid fa-arrow-up-right-from-square authority-arrow"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+                <a
+                  class="authority-row"
+                  href="https://conecta.recife.pe.gov.br/acesso/minhaspreferencias?go=defesa_civil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="authority-row-icon"
+                    ><i class="fa-solid fa-bell" aria-hidden="true"></i
+                  ></span>
+                  <span
+                    ><strong>Inscrição para alertas</strong
+                    ><small
+                      >Preferências da Defesa Civil no Conecta Recife</small
+                    ></span
+                  >
+                  <i
+                    class="fa-solid fa-arrow-up-right-from-square authority-arrow"
+                    aria-hidden="true"
+                  ></i>
+                </a>
               </div>
+              <a class="civil-defense-call" href="tel:08000813400">
+                <span class="civil-defense-icon"
+                  ><i class="fa-solid fa-phone" aria-hidden="true"></i
+                ></span>
+                <span
+                  ><small>DEFESA CIVIL DO RECIFE · ATENDIMENTO 24 H</small
+                  ><strong>0800 081 3400</strong></span
+                >
+                <span class="civil-defense-action">Ligar</span>
+              </a>
+              <p class="authority-footnote">
+                Em uma emergência, use os canais oficiais. O formulário deste
+                protótipo não encaminha registros à Prefeitura.
+              </p>
             </section>
           </div>
         </div>

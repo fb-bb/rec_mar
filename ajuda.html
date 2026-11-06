@@ -26,7 +26,7 @@
         >
           <i class="fa-solid fa-bars"></i>
         </button>
-        <img src="img/rec_mar.webp" alt="Recife Contra a Maré" class="logo" />
+        <img src="assets/img/rec_mar.webp" alt="Recife Contra a Maré" class="logo" />
         <div class="texto-logo">
           <h2>RECIFE CONTRA A MARÉ</h2>
           <p>Monitoramento de chuvas e alagamentos</p>
@@ -41,10 +41,10 @@
           href="dashboard.html"
           style="text-decoration: none"
         >
-          <span class="avatar-circle">FL</span>
+          <span class="avatar-circle">V</span>
           <span class="avatar-copy"
-            ><strong>F. Lins de Araújo</strong
-            ><span>Área do usuário</span></span
+            ><strong>Visitante</strong
+            ><span>Acesso sem autenticação</span></span
           >
           <i
             class="fa-solid fa-chevron-down"
@@ -167,7 +167,7 @@
                   aria-labelledby="q1"
                   hidden
                 >
-                  Abra <a href="/configuracoes">Configurações</a>. Nessa seção,
+                  Abra <a href="config.html">Configurações</a>. Nessa seção,
                   é possível ajustar o tamanho da fonte, o modo escuro, o idioma
                   e as notificações. As alterações são salvas automaticamente.
                 </div>
@@ -215,10 +215,7 @@
                   aria-labelledby="q3"
                   hidden
                 >
-                  Acesse “Registrar problema”, selecione o tipo, informe o local
-                  e o nível de gravidade e, quando disponível, anexe uma
-                  fotografia. As ocorrências são verificadas antes da
-                  publicação.
+                  O formulário deste site é apenas uma demonstração e não encaminha relatos à Prefeitura. Para registrar uma ocorrência real, acesse o <a href="https://acaoinverno.recife.pe.gov.br/" target="_blank" rel="noopener noreferrer">portal Ação Inverno</a> ou ligue para a Defesa Civil no <a href="tel:08000813400">0800 081 3400</a>.
                 </div>
               </div>
               <div class="faq-item">
@@ -240,9 +237,7 @@
                   aria-labelledby="q4"
                   hidden
                 >
-                  Utilize o formulário desta página ou entre em contato pelo
-                  e-mail de suporte ou WhatsApp. Em caso de risco imediato,
-                  ligue para a Defesa Civil: 199.
+                  Esta versão demonstrativa não oferece suporte técnico próprio. Para comunicar um risco ou pedir atendimento da Defesa Civil do Recife, acesse o <a href="https://acaoinverno.recife.pe.gov.br/" target="_blank" rel="noopener noreferrer">portal Ação Inverno</a> ou ligue gratuitamente para <a href="tel:08000813400">0800 081 3400</a>, com atendimento 24 horas.
                 </div>
               </div>
               <p class="faq-empty" id="faq-empty" hidden>
@@ -265,7 +260,7 @@
               <div class="card-header">
                 <div>
                   <h2>Entre em contato</h2>
-                  <p>O prazo estimado de resposta é de até 2 dias úteis.</p>
+                  <p>O envio depende da configuração do serviço de hospedagem. Não inclua informações sensíveis.</p>
                 </div>
                 <span class="card-header-icon"
                   ><i class="fa-solid fa-envelope"></i
@@ -309,37 +304,18 @@
             </form>
 
             <div class="help-channels">
-              <!-- TROQUE o e-mail e o número do WhatsApp (55 + DDD + número) -->
-              <a class="channel" href="mailto:suporte@recifecm.com.br"
-                ><span class="card-header-icon"
-                  ><i class="fa-solid fa-envelope"></i
-                ></span>
-                <div>
-                  <strong>E-mail</strong><span>suporte@recifecm.com.br</span>
-                </div></a
-              >
-              <a
-                class="channel"
-                href="https://wa.me/5581900000000?text=Ol%C3%A1%2C%20preciso%20de%20suporte"
-                target="_blank"
-                rel="noopener"
-                ><span class="card-header-icon"
-                  ><i class="fa-brands fa-whatsapp"></i
-                ></span>
-                <div>
-                  <strong>WhatsApp</strong
-                  ><span>Atendimento durante o horário comercial</span>
-                </div></a
-              >
-              <div class="channel urgent">
-                <span class="card-header-icon"
-                  ><i class="fa-solid fa-phone"></i
-                ></span>
-                <div>
-                  <strong>Emergência: 199</strong
-                  ><span>Defesa Civil em caso de risco imediato.</span>
-                </div>
-              </div>
+              <a class="channel urgent" href="tel:08000813400">
+                <span class="card-header-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+                <div><strong>Defesa Civil do Recife</strong><span>0800 081 3400 · atendimento 24 horas</span></div>
+              </a>
+              <a class="channel" href="https://acaoinverno.recife.pe.gov.br/" target="_blank" rel="noopener noreferrer">
+                <span class="card-header-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                <div><strong>Portal Ação Inverno</strong><span>Avisos e orientações oficiais</span></div>
+              </a>
+              <a class="channel" href="https://conecta.recife.pe.gov.br/acesso/minhaspreferencias?go=defesa_civil" target="_blank" rel="noopener noreferrer">
+                <span class="card-header-icon"><i class="fa-solid fa-bell" aria-hidden="true"></i></span>
+                <div><strong>Alertas de chuva</strong><span>Cadastro pelo Conecta Recife</span></div>
+              </a>
             </div>
           </div>
         </div>

@@ -28,7 +28,11 @@
           <i class="fa-solid fa-bars"></i>
         </button>
 
-        <img src="assets/img/rec_mar.webp" alt="Recife Contra a Maré" class="logo" />
+        <img
+          src="assets/img/rec_mar.webp"
+          alt="Recife Contra a Maré"
+          class="logo"
+        />
 
         <div class="texto-logo">
           <h2>RECIFE CONTRA A MARÉ</h2>
@@ -46,11 +50,11 @@
           href="dashboard.html"
           style="text-decoration: none"
         >
-          <span class="avatar-circle">FL</span>
+          <span class="avatar-circle">V</span>
 
           <span class="avatar-copy">
-            <strong>F. Lins de Araújo</strong>
-            <span>Área do usuário</span>
+            <strong>Visitante</strong>
+            <span>Acesso sem autenticação</span>
           </span>
 
           <i
@@ -122,7 +126,9 @@
             <h1>Registrar nova ocorrência</h1>
 
             <p>
-              Encaminhe fotografias e informações sobre pontos de alagamento ou outras ocorrências identificadas para contribuir com a segurança da comunidade.
+              Preencha um registro de demonstração nesta página. Para comunicar
+              uma ocorrência real, utilize o atendimento da Defesa Civil do
+              Recife.
             </p>
           </div>
         </div>
@@ -135,17 +141,19 @@
               <h2>Registrar nova ocorrência</h2>
 
               <p>
-                Contribua com informações sobre ocorrências identificadas durante períodos de chuva.
+                Esta demonstração não envia dados à Prefeitura. Para atendimento
+                oficial, ligue para
+                <a href="tel:08000813400">0800 081 3400 (24 horas)</a>.
               </p>
             </div>
 
-            <form id="form-ocorrencia">
+            <form id="form-ocorrencia" novalidate>
               <!-- TIPO -->
 
               <div class="form-group">
                 <label for="tipo"> Tipo de ocorrência </label>
 
-                <select id="tipo" name="tipo">
+                <select id="tipo" name="tipo" required>
                   <option value="alagamento">Alagamento de via</option>
 
                   <option value="bueiro">Bueiro entupido</option>
@@ -171,22 +179,36 @@
                     id="localizacao"
                     name="localizacao"
                     placeholder="Informe o endereço ou ponto de referência"
+                    maxlength="200"
+                    required
+                    aria-describedby="localizacao-ajuda"
                   />
                 </div>
+                <small class="field-hint" id="localizacao-ajuda"
+                  >Campo obrigatório. O endereço será mantido somente nesta
+                  sessão de demonstração.</small
+                >
               </div>
 
               <!-- GRAVIDADE -->
 
               <div class="form-group">
-                <label> Nível de gravidade </label>
+                <label id="gravidade-label">
+                  Nível de gravidade
+                  <span class="required-mark">(obrigatório)</span></label
+                >
 
-                <div class="severity-grid">
+                <div
+                  class="severity-grid"
+                  role="radiogroup"
+                  aria-labelledby="gravidade-label"
+                >
                   <label class="severity low">
                     <input
                       type="radio"
                       name="gravidade"
                       value="baixo"
-                      checked
+                      required
                     />
                     <span>
                       <i class="fa-solid fa-circle"></i>
@@ -195,10 +217,10 @@
                   </label>
 
                   <label class="severity moderate">
-                    <input type="radio" name="gravidade" value="medio" />
+                    <input type="radio" name="gravidade" value="moderado" />
                     <span>
                       <i class="fa-solid fa-circle"></i>
-                      Médio
+                      Moderado
                     </span>
                   </label>
 
@@ -211,10 +233,10 @@
                   </label>
 
                   <label class="severity critical">
-                    <input type="radio" name="gravidade" value="critico" />
+                    <input type="radio" name="gravidade" value="muito-alto" />
                     <span>
                       <i class="fa-solid fa-circle"></i>
-                      Crítico
+                      Muito alto
                     </span>
                   </label>
                 </div>
@@ -229,6 +251,8 @@
                   id="descricao"
                   name="descricao"
                   rows="5"
+                  required
+                  maxlength="1000"
                   placeholder="Descreva a situação observada, as condições da via e outras informações relevantes."
                 ></textarea>
               </div>
@@ -236,22 +260,35 @@
               <!-- FOTO -->
 
               <div class="form-group">
-                <label> Anexar fotografia da ocorrência </label>
+                <label for="foto">
+                  Anexar fotografia da ocorrência
+                  <span class="optional-mark">(opcional)</span></label
+                >
 
                 <label class="upload-area" for="foto">
                   <i class="fa-solid fa-camera"></i>
 
                   <strong> Selecionar ou capturar fotografia </strong>
 
-                  <span> PNG, JPG ou JPEG · limite de 10 MB </span>
+                  <span>
+                    PNG ou JPG/JPEG · limite de 10 MB · arquivo opcional
+                  </span>
 
                   <input
                     type="file"
                     id="foto"
                     name="foto"
-                    accept="image/png,image/jpeg"
+                    accept="image/png,image/jpeg,.png,.jpg,.jpeg"
+                    aria-describedby="foto-ajuda form-message"
                   />
                 </label>
+                <small class="field-hint" id="foto-ajuda"
+                  >Esta demonstração não envia nem armazena a imagem.
+                  Fotografias podem conter localização nos metadados EXIF; em
+                  uma integração futura, esses dados devem ser removidos ou
+                  tratados com consentimento. A validação no navegador não
+                  substitui a validação no servidor.</small
+                >
               </div>
 
               <!-- BOTÃO -->
@@ -262,8 +299,14 @@
               >
                 <i class="fa-solid fa-plus"></i>
 
-                Enviar ocorrência para análise
+                Registrar ocorrência (demonstração)
               </button>
+              <p
+                class="form-message"
+                id="form-message"
+                role="status"
+                aria-live="polite"
+              ></p>
             </form>
           </section>
 
@@ -280,7 +323,8 @@
               </div>
 
               <p>
-                A ocorrência é encaminhada em tempo real ao painel da Defesa Civil do Recife e contribui para informar outros moradores que utilizam o recurso de rotas seguras.
+                Esta demonstração não encaminha informações à Defesa Civil nem a
+                outros moradores. O envio real exige integração com um servidor.
               </p>
             </section>
 
@@ -292,34 +336,16 @@
                   <h3>Ocorrências recentes</h3>
                 </div>
 
-                <a href="dashboard.html" class="btn btn-ghost"> Consultar todos </a>
+                <a href="dashboard.html" class="btn btn-ghost">
+                  Consultar todos
+                </a>
               </div>
 
-              <div class="recent-list">
-                <div class="recent-item">
-                  <div class="recent-status danger"></div>
-
-                  <div class="recent-info">
-                    <strong> Alagamento em nível crítico </strong>
-
-                    <span> Boa Viagem · Há 2 horas </span>
-                  </div>
-
-                  <span class="chip chip-info"> Em análise </span>
-                </div>
-
-                <div class="recent-item">
-                  <div class="recent-status success"></div>
-
-                  <div class="recent-info">
-                    <strong> Bueiro entupido </strong>
-
-                    <span> Zona Norte · Ontem </span>
-                  </div>
-
-                  <span class="chip chip-success"> Resolvido </span>
-                </div>
-              </div>
+              <div
+                class="recent-list"
+                id="recent-list"
+                aria-live="polite"
+              ></div>
             </section>
           </aside>
         </div>
@@ -329,20 +355,268 @@
     <script>
       const menuButton = document.getElementById("mobile-menu");
       const sidebar = document.querySelector(".sidebar");
-
-      if (menuButton) {
-        menuButton.addEventListener("click", () => {
-          sidebar.classList.toggle("open");
-        });
+      if (menuButton && sidebar) {
+        menuButton.addEventListener("click", () =>
+          sidebar.classList.toggle("open"),
+        );
       }
 
-      const form = document.getElementById("form-ocorrencia");
+      (() => {
+        const form = document.getElementById("form-ocorrencia");
+        const locationField = document.getElementById("localizacao");
+        const descriptionField = document.getElementById("descricao");
+        const fileField = document.getElementById("foto");
+        const typeField = document.getElementById("tipo");
+        const message = document.getElementById("form-message");
+        const submitButton = form.querySelector('button[type="submit"]');
+        const list = document.getElementById("recent-list");
+        const DRAFT_KEY = "rcm-demo-occurrence-draft";
+        const RECORDS_KEY = "rcm-demo-occurrences";
+        const MAX_FILE_BYTES = 10 * 1024 * 1024;
+        let submitting = false;
+        let fileValidationRequest = 0;
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+        function readSession(key, fallback) {
+          try {
+            return JSON.parse(
+              sessionStorage.getItem(key) || JSON.stringify(fallback),
+            );
+          } catch {
+            return fallback;
+          }
+        }
+        function writeSession(key, value) {
+          try {
+            sessionStorage.setItem(key, JSON.stringify(value));
+            return true;
+          } catch {
+            return false;
+          }
+        }
+        function setMessage(text, state = "") {
+          message.textContent = text;
+          message.className = `form-message${state ? ` ${state}` : ""}`;
+        }
+        function saveDraft() {
+          const severity = form.querySelector(
+            'input[name="gravidade"]:checked',
+          );
+          writeSession(DRAFT_KEY, {
+            tipo: typeField.value,
+            localizacao: locationField.value,
+            descricao: descriptionField.value,
+            gravidade: severity ? severity.value : "",
+          });
+        }
+        function restoreDraft() {
+          const draft = readSession(DRAFT_KEY, null);
+          if (!draft) return;
+          if (draft.tipo) typeField.value = draft.tipo;
+          locationField.value = draft.localizacao || "";
+          descriptionField.value = draft.descricao || "";
+          if (draft.gravidade) {
+            const choice = form.querySelector(
+              `input[name="gravidade"][value="${CSS.escape(draft.gravidade)}"]`,
+            );
+            if (choice) choice.checked = true;
+          }
+          setMessage(
+            "Rascunho restaurado nesta aba. A fotografia precisa ser selecionada novamente.",
+            "info",
+          );
+        }
+        function hasSignature(bytes, signature) {
+          return signature.every((value, index) => bytes[index] === value);
+        }
+        async function validatePhoto(selectedFile) {
+          const file =
+            selectedFile === undefined
+              ? fileField.files && fileField.files[0]
+              : selectedFile;
+          if (!file) {
+            fileField.setCustomValidity("");
+            return { valid: true, file: null };
+          }
+          let error = "";
+          if (file.size > MAX_FILE_BYTES) {
+            error =
+              "A fotografia excede o limite de 10 MB. Selecione um arquivo menor.";
+          } else {
+            try {
+              const bytes = new Uint8Array(
+                await file.slice(0, 8).arrayBuffer(),
+              );
+              const isPng = hasSignature(
+                bytes,
+                [137, 80, 78, 71, 13, 10, 26, 10],
+              );
+              const isJpeg = hasSignature(bytes, [255, 216, 255]);
+              if (!isPng && !isJpeg)
+                error =
+                  "Formato inválido. Selecione uma imagem PNG ou JPG/JPEG; arquivos PDF não são aceitos.";
+            } catch {
+              error =
+                "Não foi possível verificar o formato do arquivo. Selecione uma imagem PNG ou JPG/JPEG.";
+            }
+          }
+          if (fileField.files && fileField.files[0] === file)
+            fileField.setCustomValidity(error);
+          return { valid: !error, file, error };
+        }
+        function appendText(parent, tagName, className, text) {
+          const el = document.createElement(tagName);
+          if (className) el.className = className;
+          el.textContent = text;
+          parent.appendChild(el);
+          return el;
+        }
+        function renderRecent() {
+          const records = readSession(RECORDS_KEY, []);
+          list.replaceChildren();
+          if (!records.length) {
+            appendText(
+              list,
+              "p",
+              "recent-empty",
+              "Nenhuma ocorrência foi registrada nesta sessão de demonstração.",
+            );
+            return;
+          }
+          records
+            .slice()
+            .reverse()
+            .forEach((record) => {
+              const item = document.createElement("div");
+              item.className = "recent-item";
+              const status = document.createElement("div");
+              status.className = "recent-status info";
+              item.appendChild(status);
+              const info = document.createElement("div");
+              info.className = "recent-info";
+              appendText(
+                info,
+                "strong",
+                "",
+                `${record.tipo} · ${record.gravidade}`,
+              );
+              appendText(
+                info,
+                "span",
+                "",
+                `${record.localizacao} · ${record.horario}${record.foto ? ` · ${record.foto}` : ""}`,
+              );
+              item.appendChild(info);
+              appendText(
+                item,
+                "span",
+                "chip chip-info",
+                "Somente nesta sessão",
+              );
+              list.appendChild(item);
+            });
+        }
 
-        alert("Ocorrência enviada para análise com sucesso.");
-      });
+        restoreDraft();
+        renderRecent();
+        form.addEventListener("input", saveDraft);
+        form.addEventListener("change", saveDraft);
+        fileField.addEventListener("change", async () => {
+          const requestId = ++fileValidationRequest;
+          const selectedFile = fileField.files && fileField.files[0];
+          fileField.setCustomValidity("");
+          const result = await validatePhoto(selectedFile);
+          if (
+            requestId !== fileValidationRequest ||
+            (fileField.files && fileField.files[0]) !== selectedFile
+          )
+            return;
+          setMessage(
+            result.valid
+              ? result.file
+                ? "Assinatura do formato e tamanho conferidos neste navegador."
+                : ""
+              : result.error,
+            result.valid ? "info" : "error",
+          );
+        });
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (submitting) return;
+          if (!form.reportValidity()) {
+            setMessage(
+              "Preencha os campos obrigatórios e selecione o nível de gravidade antes de continuar.",
+              "error",
+            );
+            return;
+          }
+          if (!locationField.value.trim()) {
+            locationField.setCustomValidity(
+              "Informe o endereço ou um ponto de referência.",
+            );
+            locationField.reportValidity();
+            locationField.setCustomValidity("");
+            return;
+          }
+          const severity = form.querySelector(
+            'input[name="gravidade"]:checked',
+          );
+          if (!severity) {
+            setMessage(
+              "Selecione o nível de gravidade da ocorrência.",
+              "error",
+            );
+            return;
+          }
+
+          submitting = true;
+          submitButton.disabled = true;
+          submitButton.setAttribute("aria-busy", "true");
+          const oldLabel = submitButton.textContent.trim();
+          submitButton.textContent = "Validando e salvando demonstração…";
+          try {
+            const photo = await validatePhoto();
+            if (!photo.valid) {
+              setMessage(photo.error, "error");
+              fileField.reportValidity();
+              return;
+            }
+            const records = readSession(RECORDS_KEY, []);
+            const typeLabel = typeField.options[typeField.selectedIndex].text;
+            const severityLabel =
+              severity.nextElementSibling.textContent.trim();
+            records.push({
+              tipo: typeLabel,
+              gravidade: severityLabel,
+              localizacao: locationField.value.trim(),
+              descricao: descriptionField.value.trim(),
+              foto: photo.file ? photo.file.name : "",
+              horario: new Date().toLocaleString("pt-BR", {
+                dateStyle: "short",
+                timeStyle: "short",
+              }),
+            });
+            if (!writeSession(RECORDS_KEY, records)) throw new Error("storage");
+            sessionStorage.removeItem(DRAFT_KEY);
+            form.reset();
+            renderRecent();
+            setMessage(
+              "Registro demonstrativo salvo somente nesta aba. Ele não foi enviado à Defesa Civil nem compartilhado.",
+              "success",
+            );
+          } catch {
+            setMessage(
+              "Não foi possível salvar o registro nesta sessão. Seus dados permanecem no formulário; tente novamente.",
+              "error",
+            );
+          } finally {
+            submitting = false;
+            submitButton.disabled = false;
+            submitButton.removeAttribute("aria-busy");
+            submitButton.textContent = oldLabel;
+          }
+        });
+      })();
     </script>
   </body>
 </html>
